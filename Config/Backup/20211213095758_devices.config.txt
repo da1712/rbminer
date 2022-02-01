@@ -1,0 +1,42 @@
+{
+  "CPU": {
+    "Algorithm": "",
+    "ExcludeAlgorithm": "",
+    "MinerName": "",
+    "ExcludeMinerName": "",
+    "DisableDualMining": "",
+    "DefaultOCprofile": "",
+    "PowerAdjust": "100",
+    "Worker": ""
+  },
+  "GTX10606GB": {
+    "DefaultOCprofile": "Profile2",
+    "Algorithm": "",
+    "ExcludeAlgorithm": "",
+    "MinerName": "",
+    "ExcludeMinerName": "",
+    "DisableDualMining": "",
+    "PowerAdjust": "100",
+    "Worker": ""
+  },
+  "RTX3060Ti": {
+    "DefaultOCprofile": "Profile2",
+    "Algorithm": "",
+    "ExcludeAlgorithm": "",
+    "MinerName": "",
+    "ExcludeMinerName": "",
+    "DisableDualMining": "",
+    "PowerAdjust": "100",
+    "Worker": ""
+  },
+  "RTX3080Ti": {
+    "DefaultOCprofile": "Profile2",
+    "Algorithm": "",
+    "ExcludeAlgorithm": "",
+    "MinerName": "",
+    "ExcludeMinerName": "",
+    "DisableDualMining": "",
+    "PowerAdjust": "100",
+    "Worker": ""
+  }
+}
