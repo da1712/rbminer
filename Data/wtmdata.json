@@ -1,12 +1,7 @@
-[
+﻿[
     {
         "algo":  "Ethash",
         "id":  "eth",
-        "factor":  1000000
-    },
-    {
-        "algo":  "EthashLowMemory",
-        "id":  "e4g",
         "factor":  1000000
     },
     {
@@ -45,8 +40,13 @@
         "factor":  1
     },
     {
-        "algo":  "Cuckarooz29",
+        "algo":  "Cuckarood29",
         "id":  "cr29",
+        "factor":  1
+    },
+    {
+        "algo":  "Cuckaroom29",
+        "id":  "cm29",
         "factor":  1
     },
     {
@@ -60,7 +60,7 @@
         "factor":  1
     },
     {
-        "algo":  "BeamHash3",
+        "algo":  "EquihashR25x5x3",
         "id":  "eqb",
         "factor":  1
     },
@@ -75,13 +75,13 @@
         "factor":  1000
     },
     {
-        "algo":  "Autolykos2",
-        "id":  "al",
+        "algo":  "X16rv2",
+        "id":  "x16r",
         "factor":  1000000
     },
     {
-        "algo":  "Octopus",
-        "id":  "ops",
+        "algo":  "PHI2",
+        "id":  "phi2",
         "factor":  1000000
     },
     {
@@ -95,11 +95,6 @@
         "factor":  1
     },
     {
-        "algo":  "KawPOW",
-        "id":  "kpw",
-        "factor":  1000000
-    },
-    {
         "algo":  "ProgPoW",
         "id":  "ppw",
         "factor":  1000000
@@ -110,34 +105,18 @@
         "factor":  1000000
     },
     {
-        "algo":  "FiroPoW",
-        "id":  "fpw",
+        "algo":  "MTP",
+        "id":  "mtp",
         "factor":  1000000
     },
     {
-        "algo":  "VertHash",
-        "id":  "vh",
+        "algo":  "Lyra2RE3",
+        "id":  "lrev3",
         "factor":  1000000
     },
     {
         "algo":  "Allium",
         "factor":  1000000
-    },
-    {
-        "algo":  "Argon2ChukwaV2",
-        "factor":  1000
-    },
-    {
-        "algo":  "Argon2d500",
-        "factor":  1000
-    },
-    {
-        "algo":  "Argon2dNim",
-        "factor":  1000
-    },
-    {
-        "algo":  "AstroBWT",
-        "factor":  1
     },
     {
         "algo":  "Bcd",
@@ -148,20 +127,8 @@
         "factor":  1000000
     },
     {
-        "algo":  "Blake2b",
-        "factor":  1000000000
-    },
-    {
-        "algo":  "Blake2bSHA3",
-        "factor":  1000000
-    },
-    {
         "algo":  "Blake2s",
-        "factor":  1000000000
-    },
-    {
-        "algo":  "CryptoNight",
-        "factor":  1000
+        "factor":  1000000
     },
     {
         "algo":  "CryptoNightFast2",
@@ -176,23 +143,7 @@
         "factor":  1
     },
     {
-        "algo":  "CryptoNightLiteUpx2",
-        "factor":  1000
-    },
-    {
         "algo":  "CryptoNightLiteV7",
-        "factor":  1
-    },
-    {
-        "algo":  "CryptoNightReverseWaltz",
-        "factor":  1
-    },
-    {
-        "algo":  "Cryptonightstc",
-        "factor":  1
-    },
-    {
-        "algo":  "CryptoNightTurtle",
         "factor":  1
     },
     {
@@ -208,64 +159,24 @@
         "factor":  1
     },
     {
-        "algo":  "Cuckaroo29s",
-        "factor":  1
-    },
-    {
-        "algo":  "Cuckaroo30",
-        "factor":  1
-    },
-    {
         "algo":  "Cuckaroo31",
         "factor":  1
-    },
-    {
-        "algo":  "Cuckarood29",
-        "factor":  1
-    },
-    {
-        "algo":  "Decred",
-        "factor":  1000000000
-    },
-    {
-        "algo":  "Eaglesong",
-        "factor":  1000000000
     },
     {
         "algo":  "Energi",
         "factor":  1000000
     },
     {
-        "algo":  "Equihash",
-        "factor":  1
-    },
-    {
         "algo":  "Equihash16x5",
         "factor":  1000
-    },
-    {
-        "algo":  "EquihashR25x5",
-        "factor":  1
-    },
-    {
-        "algo":  "EtcHash",
-        "factor":  1000000
-    },
-    {
-        "algo":  "Ethash4g",
-        "factor":  1000000
-    },
-    {
-        "algo":  "Groestl",
-        "factor":  1000000
     },
     {
         "algo":  "Hex",
         "factor":  1000000
     },
     {
-        "algo":  "Kangaroo12",
-        "factor":  1000000000
+        "algo":  "KawPOW",
+        "factor":  1000000
     },
     {
         "algo":  "Keccak",
@@ -280,23 +191,11 @@
         "factor":  1000
     },
     {
-        "algo":  "Lbry",
-        "factor":  1000000000
-    },
-    {
         "algo":  "Lyra2RE2",
         "factor":  1000
     },
     {
-        "algo":  "Lyra2RE3",
-        "factor":  1000000
-    },
-    {
         "algo":  "Lyra2z",
-        "factor":  1000000
-    },
-    {
-        "algo":  "M7",
         "factor":  1000000
     },
     {
@@ -304,80 +203,12 @@
         "factor":  1000
     },
     {
-        "algo":  "MegaBTX",
-        "factor":  1000000
-    },
-    {
-        "algo":  "MTP",
-        "factor":  1000000
-    },
-    {
-        "algo":  "MTPTcr",
-        "factor":  1000000
-    },
-    {
-        "algo":  "Myrgroestl",
-        "factor":  1000000000
-    },
-    {
-        "algo":  "NexusHash",
-        "factor":  1000000000
-    },
-    {
-        "algo":  "Odocrypt",
-        "factor":  1000000000
-    },
-    {
         "algo":  "PHI",
-        "factor":  1000000
-    },
-    {
-        "algo":  "PHI2",
-        "factor":  1000000
-    },
-    {
-        "algo":  "ProgPoWZ",
-        "factor":  1000000
-    },
-    {
-        "algo":  "Qubit",
         "factor":  1000000
     },
     {
         "algo":  "Randomhash",
         "factor":  1000
-    },
-    {
-        "algo":  "Randomxg",
-        "factor":  1
-    },
-    {
-        "algo":  "RX2",
-        "factor":  1000
-    },
-    {
-        "algo":  "Scrypt",
-        "factor":  1000000
-    },
-    {
-        "algo":  "SHA224",
-        "factor":  1000000000
-    },
-    {
-        "algo":  "SHA256",
-        "factor":  1000000000
-    },
-    {
-        "algo":  "Sha3solidity",
-        "factor":  1000000000
-    },
-    {
-        "algo":  "Sib",
-        "factor":  1000000000
-    },
-    {
-        "algo":  "Skein",
-        "factor":  1000000000
     },
     {
         "algo":  "Skunk",
@@ -388,31 +219,11 @@
         "factor":  1000
     },
     {
-        "algo":  "Take2",
-        "factor":  1000
-    },
-    {
         "algo":  "Tensority",
-        "factor":  1000
-    },
-    {
-        "algo":  "Tribus",
-        "factor":  1000000000
+        "factor":  1
     },
     {
         "algo":  "UbqHash",
-        "factor":  1000000
-    },
-    {
-        "algo":  "VerusHash",
-        "factor":  1000000
-    },
-    {
-        "algo":  "X11",
-        "factor":  1000000
-    },
-    {
-        "algo":  "X13",
         "factor":  1000000
     },
     {
@@ -432,15 +243,7 @@
         "factor":  1000
     },
     {
-        "algo":  "X21s",
-        "factor":  1000000
-    },
-    {
         "algo":  "X22i",
-        "factor":  1000000
-    },
-    {
-        "algo":  "Xevan",
         "factor":  1000000
     },
     {

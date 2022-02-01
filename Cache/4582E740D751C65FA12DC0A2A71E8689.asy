@@ -1,1 +1,0 @@
-﻿"{\"Hashrate\":11.956666315,\"HashrateMultiply\":1,\"MaxPayout\":10000,\"MinPayout\":0.1,\"Miners\":2,\"PoolFee\":0.4,\"Status\":true,\"Workers\":3}"

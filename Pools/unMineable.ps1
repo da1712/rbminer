@@ -48,18 +48,22 @@ $Pool_Referrals = [PSCustomObject]@{
     "1INCH" = "fy3x-kyu5"
     AAVE = "41qp-kz9q"
     ADA = "6va0-s40b"
-    ALGO = "mnh2-9i5u"
+    ALGO = "vrl4-jzoe"
     ATOM = "uy7u-k3ji"
+    BAND = "d04a-ce0q"
     BAT = "9gwg-r21y"
     BCH = "d5n0-12uj"
     BNB = "09eg-lit0"
     BTC = "9fh9-4fa8"
     BTG = "ad7b-d4tl"
     BTT = "2tik-a8gp"
+    CAKE = "jvjw-oe6g"
     CHZ = "s205-1crw"
+    CRO = "w5l8-z507"
     DASH = "ux3r-os4a"
     DGB = "ysw1-6l8f"
     DOGE = "5oln-msuu"
+    ELON = "b30y-6838"
     ENJ = "f2j8-u7yh"
     EOS = "vxnn-bcmf"
     ETC = "rd39-9u37"
@@ -74,11 +78,11 @@ $Pool_Referrals = [PSCustomObject]@{
     MANA = "awsm-eqwi"
     MATIC = "kn0o-dzfz"
     MTL = "3lyx-b4oo"
-    NANO = "ysn9-91qp"
+    NANO = "1x7t-hiis"
     NEO = "9vwe-a1uc"
     QTUM = "yd6u-nsc6"
     REP = "mn87-e9jl"
-    RSR = "s9v8-1yff"
+    RSR = "j0gb-4x91"
     RVN = "7mkm-dj0t"
     SC = "whhb-qst0"
     SHIB = "dqak-tlkv"
@@ -98,6 +102,7 @@ $Pool_Referrals = [PSCustomObject]@{
     XTZ = "c4qu-cls0"
     XVG = "i3c5-1h08"
     YFI = "gsx6-01j1"
+    ZEC = "tp3d-km6s"
     ZIL = "qkze-gt4v"
     ZRX = "ar8a-rfqo"
 }
@@ -118,7 +123,7 @@ $Pools_Data | ForEach-Object {
         if (-not $InfoOnly) {
             $Pool_ProfitRequest = [PSCustomObject]@{}
             try {
-                $Pool_ProfitRequest = Invoke-RestMethodAsync "https://api.unminable.com/v3/calculate/reward" -tag $Name -delay 100 -cycletime 120 -body @{algo=$Pool_RewardAlgo;coin=$Pool_Currency;mh=100}                
+                $Pool_ProfitRequest = Invoke-RestMethodAsync "https://api.unminable.com/v3/calculate/reward" -tag $Name -delay 100 -cycletime 120 -body @{algo=$Pool_RewardAlgo;coin=$Pool_Currency;mh=100}
             } catch {
                 if ($Error.Count){$Error.RemoveAt(0)}
                 Write-Log -Level Warn "Pool profit API ($Name) has failed for coin $($Pool_Currency). "

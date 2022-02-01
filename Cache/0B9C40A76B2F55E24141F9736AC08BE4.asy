@@ -1,1 +1,0 @@
-﻿{"per_day":30.74758847,"per_month":922.4276543,"algo":"etchash"}

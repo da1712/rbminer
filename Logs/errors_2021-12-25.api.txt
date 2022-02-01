@@ -1,3 +1,0 @@
-﻿[2021-12-25 02:02:17] [0] Response to /sysinfo not sent: Exception calling "Flush" with "0" argument(s): "An operation was attempted on a nonexistent network connection"
-[2021-12-25 02:02:17] [0] Response to /currentprofit not sent: Exception calling "Close" with "0" argument(s): "An operation was attempted on a nonexistent network connection"
-[2021-12-25 02:02:17] [1] Response to /balances not sent: Exception calling "Write" with "1" argument(s): "An operation was attempted on a nonexistent network connection"

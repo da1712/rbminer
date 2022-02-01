@@ -108,7 +108,13 @@ $Global:DeviceCache.DevicesByTypes.NVIDIA | Select-Object Vendor, Model -Unique 
         $Miner_Device = $Device | Where-Object {Test-VRAM $_ $MinMemGB}
 
         $IsLHR = $true
-        foreach($d in $Miner_Device) {if (-not $d.IsLHR) {$IsLHR = $false;break}}
+        foreach($d in $Miner_Device) {
+            $Model_Base = $d.Model_Base
+            if ((-not $d.IsLHR -and -not $Session.Config.Devices.$Model_Base.EnableLHR) -or $Session.Config.Devices.$Model_Base.EnableLHR -eq $false) {
+                $IsLHR = $false
+                break
+            }
+        }
 
 		foreach($Algorithm_Norm in @($Algorithm_Norm_0,"$($Algorithm_Norm_0)-$($Miner_Model)","$($Algorithm_Norm_0)-GPU")) {
             if ($Pools.$Algorithm_Norm.Host -and $Miner_Device -and (-not $_.ExcludePoolName -or $Pools.$Algorithm_Norm.Name -notmatch $_.ExcludePoolName)) {
@@ -119,7 +125,7 @@ $Global:DeviceCache.DevicesByTypes.NVIDIA | Select-Object Vendor, Model -Unique 
                     $DeviceIDsAll = $Miner_Device.Type_Vendor_Index -join ','
                     if ($Session.Config.Pools.Ezil.EnableTrexDual -and $_.DualZIL -and $Pools.ZilliqaETH -and $Pools.ZilliqaETH.Host -and $Pools.ZilliqaETH.Wallet -and $Pools.ZilliqaETH.EthMode -eq $Pools.$Algorithm_Norm.EthMode) {
                         $ZilPool = "$($Pools.ZilliqaETH.Protocol)://$($Pools.ZilliqaETH.Host):$($Pools.ZilliqaETH.Port)"
-                        $ZilUser = $Pools.ZilliqaETH.User
+                        $ZilUser = "$(if ($Pools.$Algorithm_Norm.Wallet -match "^0x") {$Pools.$Algorithm_Norm.Wallet} elseif ($_.DualZIL -eq "ETH") {"0xaaD1d2972f99A99248464cdb075B28697d4d8EEd"}).$($Pools.ZilliqaETH.User)"
                         $ZilPass = $Pools.ZilliqaETH.Pass
                     } else {
                         $ZilPool = ""

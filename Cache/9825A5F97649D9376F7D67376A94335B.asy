@@ -1,1 +1,0 @@
-﻿{"per_day":0.04701226,"per_month":1.41036792,"algo":"randomx"}

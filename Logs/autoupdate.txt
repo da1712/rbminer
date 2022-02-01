@@ -1,6 +1,0 @@
-{
-    "RemoteVersion":  "4.7.9.5",
-    "Version":  "4.7.9.4",
-    "Timestamp":  "12/24/2021 8:15:20 PM",
-    "Attempts":  1
-}

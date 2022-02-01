@@ -1,1 +1,0 @@
-﻿{"status":true,"data":{"shareRateHistory":[],"avgHashRate":{"h24":null,"h12":null,"h6":null,"h3":null,"h1":null},"userParams":{"min_payout":100,"message":"","hashrate":0,"balance":0.645910499956178,"balance_unconfirmed":0,"reported":0,"e_sum":null,"e_count":0,"ae_sum":null,"ae_count":0,"w_count":0}}}

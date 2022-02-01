@@ -256,8 +256,8 @@ function Start-Setup {
                 "C" {$GlobalSetupName = "Common";$GlobalSetupSteps.AddRange(@("workername","miningmode","devicename","excludedevicename","devicenameend","cpuminingthreads","cpuminingaffinity","enableautoadjustaffinity","gpuminingaffinity","pooldatawindow","enableerrorratio","maxerrorratio","poolstataverage","poolstataveragestable","hashrateweight","hashrateweightstrength","poolaccuracyweight","minerfaulttolerancegpu","minerfaulttolerancecpu","defaultpoolregion","region","currency","enableminerstatus","minerstatusurl","minerstatuskey","minerstatusemail","pushoveruserkey","minerstatusmaxtemp","minerstatusmaxcrashesperhour","diskmingb","uistyle","uisorting","uifullbenchmarklist","fastestmineronly","showpoolbalances","showpoolbalancesdetails","showpoolbalancesexcludedpools","excludecoinsymbolbalances","showwalletbalances","walletbalances","enableminingheatcontrol","miningheatcontrol","enablealgorithmmapping","showminerwindow","ignorefees","enableocprofiles","enableocvoltage","enableoclinuxsetallpstates","enableoclinuxforcepstate","ocresetinterval","enableocfullreset","enablelinuxheadless","linuxdisplay","linuxxauthority","enableminersasroot","enableresetvega","msia","msiapath","nvsmipath","ethpillenable","ethpillenablemtp","enableautominerports","staticcpuminerport","staticgpuminerport","enableautoupdate","enableautoalgorithmadd","enableautobenchmark","profitspikeprotection")) > $null}
                 "E" {$GlobalSetupName = "Energycost";$GlobalSetupSteps.AddRange(@("powerpricecurrency","powerprice","poweroffset","poweroffsetpercent","fixedcostperday","usepowerprice","checkprofitability")) > $null}
                 "S" {$GlobalSetupName = "Selection";$GlobalSetupSteps.AddRange(@("poolname","reducezergpoolfee","minername","excludeminername","excludeminerswithfee","preferminername","preferminermargin","disabledualmining","enablecheckminingconflict","enableethashzombiemode","algorithm","excludealgorithm","disableunprofitablealgolist","disableunprofitablecpualgolist","excludecoinsymbol","excludecoin")) > $null}
-                "N" {$GlobalSetupName = "Network";$GlobalSetupSteps.AddRange(@("runmode","apiport","apiinit","apiauth","apiuser","apipassword","apithreads","apilockconfig","apimaxloginattemps","apiblockloginattemptstime","serverinit","serverinit2","servername","serverport","serveruser","serverpassword","clientconnect","enableserverpools","enableserverconfig","groupname","serverconfigname","excludeserverconfigvars1","excludeserverconfigvars2","clientinit")) > $null}
-                "A" {$GlobalSetupName = "All";$GlobalSetupSteps.AddRange(@("startsetup","workername","runmode","apiport","apiinit","apiauth","apiuser","apipassword","apithreads","apilockconfig","apimaxloginattemps","apiblockloginattemptstime","serverinit","serverinit2","servername","serverport","serveruser","serverpassword","clientconnect","enableserverpools","enableserverconfig","groupname","serverconfigname","excludeserverconfigvars1","excludeserverconfigvars2","clientinit","wallet","nicehash","nicehash2","nicehashorganizationid","nicehashapikey","nicehashapisecret","addcoins1","addcoins2","addcoins3","mph","mphapiid","mphapikey","mrr","mrrapikey","mrrapisecret","region","currency","benchmarkintervalsetup","enablefastlanebenchmark","fastlanebenchmarktypecpu","fastlanebenchmarktypegpu","enablefastlanebenchmarkmissing","enableminerstatus","minerstatusurl","minerstatuskey","minerstatusemail","pushoveruserkey","minerstatusmaxtemp","minerstatusmaxcrashesperhour","diskmingb","enableautominerports","enableautoupdate","enableautoalgorithmadd","enableautobenchmark","profitspikeprotection","poolname","reducezergpoolfee","autoaddcoins","minername","excludeminername","preferminername","preferminermargin","algorithm","excludealgorithm","disableunprofitablealgolist","disableunprofitablecpualgolist","excludecoinsymbol","excludecoin","disabledualmining","excludeminerswithfee","enablecheckminingconflict","enableethashzombiemode","devicenamebegin","miningmode","devicename","excludedevicename","devicenamewizard","devicenamewizardgpu","devicenamewizardamd1","devicenamewizardamd2","devicenamewizardnvidia1","devicenamewizardnvidia2","devicenamewizardintel1","devicenamewizardintel2","devicenamewizardcpu1","devicenamewizardend","devicenameend","cpuminingthreads","enableautoadjustaffinity","cpuminingaffinity","gpuminingaffinity","staticcpuminerport","staticgpuminerport","pooldatawindow","enableerrorratio","maxerrorratio","poolstataverage","poolstataverage","hashrateweight","hashrateweightstrength","poolaccuracyweight","minerfaulttolerancegpu","minerfaulttolerancecpu","defaultpoolregion","uistyle","uisorting","uifullbenchmarklist","fastestmineronly","showpoolbalances","showpoolbalancesdetails","showpoolbalancesexcludedpools","excludecoinsymbolbalances","showwalletbalances","walletbalances","enableminingheatcontrol","miningheatcontrol","maxactivitydays","enablealgorithmmapping","showminerwindow","ignorefees","watchdog","excludefromwatchdog","enableocprofiles","enableocvoltage","enableoclinuxsetallpstates","enableoclinuxforcepstate","ocresetinterval","enableocfullreset","enablelinuxheadless","linuxdisplay","linuxxauthority","enableminersasroot","enableresetvega","msia","msiapath","nvsmipath","ethpillenable","ethpillenablemtp","proxy","proxyusername","proxypassword","covalentapikey","enablecurl","delay","interval","benchmarkinterval","maxcrashesduringbenchmark","minimumminingintervals","disableextendinterval","switchingprevention","poolswitchinghysteresis","minerswitchinghysteresis","maxrejectedshareratio","maxallowedluck","maxtimesincelastblock","mincombooversingleratio","enablefastswitching","forcestableprice","disablemsiamonitor","disableapi","disableasyncloader","disableinternetcheck","usetimesync","websitesforonlinecheck","miningprioritycpu","miningprioritygpu","autoexecpriority","powerpricecurrency","powerprice","poweroffset","poweroffsetpercent","fixedcostperday","usepowerprice","checkprofitability","quickstart","startpaused","enableupdateduringpause","enableupdatewhenscheduled","enablepauseonactivity","resumeoninactivityseconds","enablepauseonbattery","loglevel","maxlogfiledays","maxdownloadfiledays","maxcachefiledays","enableminerbackups","enablekeepdownloads","enablerestartcomputer","restartcomputerhours","openclplatformsorting","enabledebugmode","enableverboseasyncloader","ssl","donate")) > $null}
+                "N" {$GlobalSetupName = "Network";$GlobalSetupSteps.AddRange(@("runmode","apiport","apiinit","apiauth","apiuser","apipassword","apithreads","apilockconfig","apimaxloginattemps","apiblockloginattemptstime","apiallowips","serverinit","serverinit2","servername","serverport","serveruser","serverpassword","clientconnect","enableserverpools","enableserverconfig","groupname","serverconfigname","excludeserverconfigvars1","excludeserverconfigvars2","clientinit")) > $null}
+                "A" {$GlobalSetupName = "All";$GlobalSetupSteps.AddRange(@("startsetup","workername","runmode","apiport","apiinit","apiauth","apiuser","apipassword","apithreads","apilockconfig","apimaxloginattemps","apiblockloginattemptstime","apiallowips","serverinit","serverinit2","servername","serverport","serveruser","serverpassword","clientconnect","enableserverpools","enableserverconfig","groupname","serverconfigname","excludeserverconfigvars1","excludeserverconfigvars2","clientinit","wallet","nicehash","nicehash2","nicehashorganizationid","nicehashapikey","nicehashapisecret","addcoins1","addcoins2","addcoins3","mph","mphapiid","mphapikey","mrr","mrrapikey","mrrapisecret","region","currency","benchmarkintervalsetup","enablefastlanebenchmark","fastlanebenchmarktypecpu","fastlanebenchmarktypegpu","enablefastlanebenchmarkmissing","enableminerstatus","minerstatusurl","minerstatuskey","minerstatusemail","pushoveruserkey","minerstatusmaxtemp","minerstatusmaxcrashesperhour","diskmingb","enableautominerports","enableautoupdate","enableautoalgorithmadd","enableautobenchmark","profitspikeprotection","poolname","reducezergpoolfee","autoaddcoins","minername","excludeminername","preferminername","preferminermargin","algorithm","excludealgorithm","disableunprofitablealgolist","disableunprofitablecpualgolist","excludecoinsymbol","excludecoin","disabledualmining","excludeminerswithfee","enablecheckminingconflict","enableethashzombiemode","devicenamebegin","miningmode","devicename","excludedevicename","devicenamewizard","devicenamewizardgpu","devicenamewizardamd1","devicenamewizardamd2","devicenamewizardnvidia1","devicenamewizardnvidia2","devicenamewizardintel1","devicenamewizardintel2","devicenamewizardcpu1","devicenamewizardend","devicenameend","cpuminingthreads","enableautoadjustaffinity","cpuminingaffinity","gpuminingaffinity","staticcpuminerport","staticgpuminerport","pooldatawindow","enableerrorratio","maxerrorratio","poolstataverage","poolstataverage","hashrateweight","hashrateweightstrength","poolaccuracyweight","minerfaulttolerancegpu","minerfaulttolerancecpu","defaultpoolregion","uistyle","uisorting","uifullbenchmarklist","fastestmineronly","showpoolbalances","showpoolbalancesdetails","showpoolbalancesexcludedpools","excludecoinsymbolbalances","showwalletbalances","walletbalances","enableminingheatcontrol","miningheatcontrol","maxactivitydays","enablealgorithmmapping","showminerwindow","ignorefees","watchdog","excludefromwatchdog","enableocprofiles","enableocvoltage","enableoclinuxsetallpstates","enableoclinuxforcepstate","ocresetinterval","enableocfullreset","enablelinuxheadless","linuxdisplay","linuxxauthority","enableminersasroot","enableresetvega","msia","msiapath","nvsmipath","ethpillenable","ethpillenablemtp","proxy","proxyusername","proxypassword","covalentapikey","enablecurl","delay","interval","benchmarkinterval","maxcrashesduringbenchmark","minimumminingintervals","disableextendinterval","switchingprevention","poolswitchinghysteresis","minerswitchinghysteresis","maxrejectedshareratio","maxallowedluck","maxtimesincelastblock","mincombooversingleratio","enablefastswitching","forcestableprice","disablemsiamonitor","disableapi","disableasyncloader","disableinternetcheck","usetimesync","websitesforonlinecheck","miningprioritycpu","miningprioritygpu","autoexecpriority","powerpricecurrency","powerprice","poweroffset","poweroffsetpercent","fixedcostperday","usepowerprice","checkprofitability","quickstart","startpaused","enableupdateduringpause","enableupdatewhenscheduled","enablepauseonactivity","resumeoninactivityseconds","enablepauseonbattery","loglevel","maxlogfiledays","maxdownloadfiledays","maxcachefiledays","enableminerbackups","enablekeepdownloads","enablerestartcomputer","restartcomputerhours","openclplatformsorting","enabledebugmode","enableverboseasyncloader","ssl","donate")) > $null}
             }
             $GlobalSetupSteps.Add("save") > $null
 
@@ -618,6 +618,7 @@ function Start-Setup {
                                 Write-Host "- on this machine: http://localhost:$($Config.APIport)" -ForegroundColor Cyan
                                 Write-Host "- on most devices in the network: http://$($Session.MachineName):$($Config.APIport)" -ForegroundColor Cyan
                                 Write-Host "- on any other device in the network: http://$($Session.MyIP):$($Config.APIport)" -ForegroundColor Cyan
+                                Write-Host "- it is strongly recommended, that you enable auth and/or restrict access to specific IP-addresses in the following" -ForegroundColor Cyan
                                 Write-Host " "
                             }
                             $Config.APIport = Read-HostInt -Prompt "If needed, choose a different API port" -Default $Config.APIport -Mandatory -Min 1000 -Max 9999 | Foreach-Object {if ($Controls -icontains $_) {throw $_};$_}
@@ -674,6 +675,9 @@ function Start-Setup {
                             } else {
                                 $GlobalSetupStepStore = $false
                             }
+                        }
+                        "apiallowips" {
+                            $Config.APIallowIPs = Read-HostArray -Prompt "Enter IP addresses, that will be exclusively allowed to access the API (*-wildcard allowed, e.g. 192.168.0.*)" -Default $Config.APIallowIPs -Characters "[0-9A-F`.:`*]" | Foreach-Object {if ($Controls -icontains $_) {throw $_};$_}
                         }
                         "runmode" {
                             $Config.RunMode = Read-HostString -Prompt "Select the operation mode of this rig (standalone,server,client)" -Default $Config.RunMode -Valid @("standalone","server","client") | Foreach-Object {if ($Controls -icontains $_) {throw $_};$_}
@@ -1902,6 +1906,7 @@ function Start-Setup {
                             $ConfigActual | Add-Member APIlockConfig $(if (Get-Yes $Config.APIlockConfig){"1"}else{"0"}) -Force
                             $ConfigActual | Add-Member APImaxLoginAttemps $Config.APImaxLoginAttemps -Force
                             $ConfigActual | Add-Member APIblockLoginAttemptsTime $Config.APIblockLoginAttemptsTime -Force
+                            $ConfigActual | Add-Member APIallowIPs $($Config.APIallowIPs -join ",") -Force
                             $ConfigActual | Add-Member EnableAutoMinerPorts $(if (Get-Yes $Config.EnableAutoMinerPorts){"1"}else{"0"}) -Force
                             $ConfigActual | Add-Member DisableMSIAmonitor $(if (Get-Yes $Config.DisableMSIAmonitor){"1"}else{"0"}) -Force
                             $ConfigActual | Add-Member DisableAPI $(if (Get-Yes $Config.DisableAPI){"1"}else{"0"}) -Force
@@ -2739,7 +2744,7 @@ function Start-Setup {
                     if ($Device_Name -eq '') {throw}
 
                     if (-not $DevicesActual.$Device_Name) {
-                        $DevicesActual | Add-Member $Device_Name ([PSCustomObject]@{Algorithm="";ExcludeAlgorithm="";MinerName="";ExcludeMinerName="";DisableDualMining="";PowerAdjust="100"}) -Force
+                        $DevicesActual | Add-Member $Device_Name ([PSCustomObject]@{Algorithm="";ExcludeAlgorithm="";MinerName="";ExcludeMinerName="";DisableDualMining="";PowerAdjust="100";EnableLHR=""}) -Force
                         Set-ContentJson -PathToFile $ConfigFiles["Devices"].Path -Data $DevicesActual > $null
                     }
 
@@ -2751,7 +2756,7 @@ function Start-Setup {
 
                         $DeviceConfig = $DevicesActual.$Device_Name.PSObject.Copy()
 
-                        $DeviceSetupSteps.AddRange(@("algorithm","excludealgorithm","minername","excludeminername","disabledualmining","defaultocprofile","poweradjust")) > $null
+                        $DeviceSetupSteps.AddRange(@("algorithm","excludealgorithm","minername","excludeminername","disabledualmining","defaultocprofile","poweradjust","enablelhr")) > $null
                         $DeviceSetupSteps.Add("save") > $null
                                         
                         do {
@@ -2776,6 +2781,9 @@ function Start-Setup {
                                     "defaultocprofile" {                                                        
                                         $DeviceConfig.DefaultOCprofile = Read-HostString -Prompt "Select the default overclocking profile for this device ($(if ($DeviceConfig.DefaultOCprofile) {"enter 'clear'"} else {"leave empty"}) for none)" -Default $DeviceConfig.DefaultOCprofile -Characters "A-Z0-9" -Valid @($OCprofilesActual.PSObject.Properties.Name | Sort-Object) | Foreach-Object {if ($Controls -icontains $_) {throw $_};$_}
                                     }
+                                    "enablelhr" {
+                                        $DeviceConfig.EnableLHR = Read-HostString -Prompt "Explicitly instruct miners to use LHR magic: 1=use, 0=don't use, $(if ($DeviceConfig.EnableLHR -ne '') {"enter 'clear'"} else {"leave empty"})=automatically use" -Default $DeviceConfig.EnableLHR -Valid @("0","1") | Foreach-Object {if ($Controls -icontains $_) {throw $_};$_}
+                                    }
                                     "poweradjust" {                                                        
                                         $DeviceConfig.PowerAdjust = Read-HostDouble -Prompt "Adjust power consumption to this value in percent, e.g. 75 would result in Power x 0.75 (enter 100 for original value)" -Default $DeviceConfig.PowerAdjust -Min 0 | Foreach-Object {if ($Controls -icontains $_) {throw $_};$_}
                                     }
@@ -2789,6 +2797,7 @@ function Start-Setup {
                                         $DeviceConfig | Add-Member ExcludeMinerName $($DeviceConfig.ExcludeMinerName -join ",") -Force
                                         $DeviceConfig | Add-Member DisableDualMining $(if (Get-Yes $DeviceConfig.DisableDualMining){"1"}else{"0"}) -Force
                                         $DeviceConfig | Add-Member PowerAdjust "$($DeviceConfig.PowerAdjust)" -Force
+                                        $DeviceConfig | Add-Member EnableLHR "$($DeviceConfig.EnableLHR)" -Force
 
                                         $DevicesActual | Add-Member $Device_Name $DeviceConfig -Force
                                         $DevicesActualSave = [PSCustomObject]@{}
@@ -3423,10 +3432,13 @@ function Start-Setup {
                         @{Label="Update"; Expression={"$(if (Get-Yes $_.Update) {"1"} else {"0"})"};align="center"}
                         @{Label="EnableMHC"; Expression={"$(if ($_.EnableMiningHeatControl -eq '') {'*'} elseif (Get-Yes $_.EnableMiningHeatControl) {"1"} else {"0"})"};align="center"}
                         @{Label="MHC"; Expression={"$(if ($_.MiningHeatControl -eq '') {'*'} else {$_.MiningHeatControl})"};align="right"}
+                        @{Label="PauseRentals"; Expression={"$(if (Get-Yes $_.PauseRentals) {"1"} else {"0"})"};align="center"}
+                        @{Label="MRR-PF"; Expression={"$(if ($_.MRRPriceFactor -eq '') {'*'} else {$_.MRRPriceFactor})"};align="right"}
                     ) | Out-Host
                     Write-Host "DayofWeek: *=all $(((0..6) | %{"$($_)=$([DayOfWeek]$_)"}) -join ' ')"
                     Write-Host "EnableMHC = EnableMiningHeatControl, *=default, 0=disable, 1=enable"
                     Write-Host "MHC = MiningHeatControl value 0..5"
+                    Write-Host "MRR-PF = MRRPriceFactor, *=default"
                     Write-Host " "
                     [console]::ForegroundColor = $p
 
@@ -3445,6 +3457,8 @@ function Start-Setup {
                         EnableUpdate = "0"
                         EnableMiningHeatControl = ""
                         MiningHeatControl = ""
+                        PauseRentals = "0"
+                        MRRPriceFactor = ""
                         Algorithm = ""
                         ExcludeAlgorithm = ""
                         CoinSymbol = ""
@@ -3467,7 +3481,7 @@ function Start-Setup {
                     $SchedulerSetupStep = 0
 
                     if ($Scheduler_Action -ne "d") {
-                        $SchedulerSetupSteps.AddRange(@("dayofweek","name","from","to","powerprice","pause","enable","enableupdate","enableminingheatcontrol","miningheatcontrol","algorithm","excludealgorithm","coinsymbol","excludecoinsymbol","poolname","excludepoolname")) > $null
+                        $SchedulerSetupSteps.AddRange(@("dayofweek","name","from","to","powerprice","pause","enable","enableupdate","enableminingheatcontrol","miningheatcontrol","pauserentals","mrrpricefactor","algorithm","excludealgorithm","coinsymbol","excludecoinsymbol","poolname","excludepoolname")) > $null
                     }
                     $SchedulerSetupSteps.Add("save") > $null
 
@@ -3522,6 +3536,15 @@ function Start-Setup {
                                         } else {$mhc = ""}
                                     }
                                 }
+                                "pauserentals" {
+                                    $Schedule.PauseRentals = Read-HostBool -Prompt "Disable all unrented rigs during this schedule?" -Default $Schedule.PauseRentals | Foreach-Object {if ($Controls -icontains $_) {throw $_};$_}
+                                }
+                                "mrrpricefactor" {
+                                    $Schedule.MRRPriceFactor = Read-HostString -Prompt "Enter a specific price factor for MiningRigRentals during this schedule, $(if ($Schedule.MRRPriceFactor -ne '') {"enter 'clear'"} else {"leave empty"}) for global default)" -Default $Schedule.MRRPriceFactor -Characters "0-9\.," | Foreach-Object {if ($Controls -icontains $_) {throw $_};$_}
+                                    if ($Schedule.MRRPriceFactor -ne "") {
+                                        $Schedule.MRRPriceFactor = $Schedule.MRRPriceFactor -replace ",","."
+                                    }
+                                }
                                 "algorithm" {
                                     $Schedule.Algorithm = Read-HostArray -Prompt "Enter the algorithm you want to mine during this schedule ($(if ($Schedule.Algorithm) {"enter 'clear'"} else {"leave empty"}) for all)" -Default $Schedule.Algorithm -Characters "A-Z0-9" -Valid (Get-Algorithms) | Foreach-Object {if ($Controls -icontains $_) {throw $_};$_}
                                 }
@@ -3563,6 +3586,8 @@ function Start-Setup {
                                             EnableUpdate = if (Get-Yes $_.EnableUpdate) {"1"} else {"0"}
                                             EnableMiningHeatControl = "$($_.EnableMiningHeatControl)"
                                             MiningHeatControl = "$($_.MiningHeatControl)"
+                                            PauseRentals = if (Get-Yes $_.PauseRentals) {"1"} else {"0"}
+                                            MRRPriceFactor = "$($_.MRRPriceFactor)"
                                             Algorithm  = "$($_.Algorithm -join ",")"
                                             ExcludeAlgorithm  = "$($_.ExcludeAlgorithm -join ",")"
                                             CoinSymbol  = "$($_.CoinSymbol -join ",")"

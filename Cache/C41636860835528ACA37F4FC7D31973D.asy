@@ -1,1 +1,0 @@
-﻿{"ETH":{"coin":"Ethereum","algo":"Ethash","port":3939,"fee":0,"host":"eth.ethashpool.com","stats":null,"blocks":[]},"ETC":{"coin":"EthClassic","algo":"Ethash","port":3838,"fee":0,"host":"etc.ethashpool.com","stats":null,"blocks":[]},"ETP":{"coin":"Metaverse","algo":"Ethash","port":3737,"fee":0,"host":"etp.ethashpool.com","stats":null,"blocks":[]}}

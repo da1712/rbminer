@@ -353,10 +353,6 @@ Function Write-Log {
         if ($Session.SetupOnly) {return}
     }
     Process {
-        # Inherit the same verbosity settings as the script importing this
-        if (-not $PSBoundParameters.ContainsKey('InformationPreference')) { $InformationPreference = $PSCmdlet.GetVariableValue('InformationPreference') }
-        if (-not $PSBoundParameters.ContainsKey('Verbose')) { $VerbosePreference = $PSCmdlet.GetVariableValue('VerbosePreference') }
-        if (-not $PSBoundParameters.ContainsKey('Debug')) {$DebugPreference = $PSCmdlet.GetVariableValue('DebugPreference')}
 
         $filename = ".\Logs\RainbowMiner_$(Get-Date -Format "yyyy-MM-dd").txt"
 
@@ -364,32 +360,35 @@ Function Write-Log {
         if (-not (Test-Path "Stats\Miners")) {New-Item "Stats\Miners" -ItemType "directory" > $null}
         if (-not (Test-Path "Stats\Totals")) {New-Item "Stats\Totals" -ItemType "directory" > $null}
 
+        $Color = ""
+
         switch ($Level) {
             'Error' {
                 $LevelText = 'ERROR:'
-                Write-Error -Message $Message
+                $Color = "Red"
                 Break
             }
             'Warn' {
                 $LevelText = 'WARNING:'
-                Write-Warning -Message $Message
+                $Color = "Yellow"
                 Break
             }
             'Info' {
                 $LevelText = 'INFO:'
-                #Write-Information -MessageData $Message
                 Break
             }
             'Verbose' {
                 $LevelText = 'VERBOSE:'
-                Write-Verbose -Message $Message
                 Break
             }
             'Debug' {
                 $LevelText = 'DEBUG:'
-                Write-Debug -Message $Message
                 Break
             }
+        }
+
+        if ($Color -ne "") {
+            Write-Host "$LevelText $Message" -ForegroundColor $Color
         }
 
         $NoLog = Switch ($Session.LogLevel) {
@@ -411,7 +410,7 @@ Function Write-Log {
                 $mutex.ReleaseMutex()
             }
             else {
-                Write-Warning -Message "Log file is locked, unable to write message to $FileName."
+                Write-Error -Message "Log file is locked, unable to write message to $FileName."
             }
         }
     }
@@ -5333,7 +5332,7 @@ function Set-DevicesConfigDefault {
         try {            
             if ($Preset -is [string] -or -not $Preset.PSObject.Properties.Name) {$Preset = [PSCustomObject]@{}}
             $ChangeTag = Get-ContentDataMD5hash($Preset)
-            $Default = [PSCustomObject]@{Algorithm="";ExcludeAlgorithm="";MinerName="";ExcludeMinerName="";DisableDualMining="";DefaultOCprofile="";PowerAdjust="100";Worker=""}
+            $Default = [PSCustomObject]@{Algorithm="";ExcludeAlgorithm="";MinerName="";ExcludeMinerName="";DisableDualMining="";DefaultOCprofile="";PowerAdjust="100";Worker="";EnableLHR=""}
             $Setup = Get-ChildItemContent ".\Data\DevicesConfigDefault.ps1"
             $Devices = Get-Device "amd","intel","nvidia","cpu" -IgnoreOpenCL
             $Devices | Select-Object -Unique Type,Model | Foreach-Object {

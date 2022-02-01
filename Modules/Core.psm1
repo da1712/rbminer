@@ -141,6 +141,7 @@ function Start-Core {
         $Session.ReportMinerData = $false
         $Session.ReportPoolsData = $false
         $Session.ReportDeviceData = $false
+        $Session.ReportUnclean = $false
         $Session.TimeDiff = 0
         $Session.PhysicalCPUs = 0
         $Session.UserConfig = $null
@@ -164,7 +165,6 @@ function Start-Core {
         Write-Log -Level Error "Cannot run RainbowMiner: $($_.Exception.Message)"
         $false
     }
-
 
     Write-Host "Checking for VM .. " -NoNewline
     try {
@@ -267,7 +267,9 @@ function Start-Core {
         Write-Host "error" -ForegroundColor Red
     }
 
-    if ($IsWindows -and ($GpuMemSizeMB = (($Global:DeviceCache.AllDevices | Where-Object {$_.Type -eq "Gpu" -and $_.Vendor -in @("AMD","INTEL","NVIDIA")}).OpenCL.GlobalMemSizeGB | Measure-Object -Sum).Sum*1100)) {
+    if ($IsWindows -and ($Session.MineOnCPU -ne $false -or $Session.MineOnGPU -ne $false)) {
+        $GpuMemSizeMB = if ($Session.MineOnGPU -eq $false) {0} else {(($Global:DeviceCache.AllDevices | Where-Object {$_.Type -eq "Gpu" -and $_.Vendor -in @("AMD","INTEL","NVIDIA")}).OpenCL.GlobalMemSizeGB | Measure-Object -Sum).Sum*1100}
+        $CpuMemSizeMB = if ($Session.MineOnCPU -eq $false) {0} else {[Math]::Max(0,32-(Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property capacity -Sum).Sum/1GB)*1100}
         try {
             Write-Host "Checking Windows pagefile/virtual memory .. " -NoNewline
 
@@ -288,21 +290,29 @@ function Start-Core {
                     Write-Log -Level Info "$($_.Name) is set to initial size $($_.InitialSize) MB and maximum size $($_.MaximumSize) MB"
                 }
                 $PageFileMaxSize = ($PageFileInfo | Measure-Object -Property MaximumSize -Sum).Sum
-                if ($PageFileMaxSize -lt $GpuMemSizeMB) {
-                    $PageFile_Warn += "Pagefiles are too small ($($PageFileMaxSize) MB). Set them to a total minimum of $($GpuMemSizeMB) MB"
+
+                if ($PageFileMaxSize -lt ($GpuMemSizeMB + $CpuMemSizeMB)) {
+                    if ($Session.MineOnCPU -eq $null -and $CpuMemSizeMB -gt 0 -and $GpuMemSizeMB -gt 0) {
+                        $PageFile_Warn += "Pagefiles may be too small ($($PageFileMaxSize) MB). Set them to a total minimum:"
+                        $PageFile_Warn += "- if mining on CPU, only: $($CpuMemSizeMB) MB$(if ($PageFileMaxSize -ge $CpuMemSizeMB) {" (current pagefile is large enough)"})"
+                        $PageFile_Warn += "- if mining on GPU, only: $($GpuMemSizeMB) MB$(if ($PageFileMaxSize -ge $GpuMemSizeMB) {" (current pagefile is large enough)"})"
+                        $PageFile_Warn += "- if mining on CPU + GPU: $($GpuMemSizeMB + $CpuMemSizeMB) MB"
+                    } else {
+                        $PageFile_Warn += "Pagefiles are too small ($($PageFileMaxSize) MB). Set them to a total minimum of $($CpuMemSizeMB + $GpuMemSizeMB) MB"
+                    }
                 }
             } else {
                 $PageFile_Warn += "No pagefile found"
             }
             if ($PageFile_Warn) {
-                Write-Host "problem!" -ForegroundColor Red
+                Write-Host "Problem!" -ForegroundColor Red
                 $PageFile_Warn | Where-Object {$_} | Foreach-Object {Write-Log -Level Warn "$_"}
                 Write-Host " "
                 Write-Host "To adjust your pagefile settings:" -BackgroundColor Yellow -ForegroundColor Black
                 Write-Host "1. goto Computer Properties -> Advanced System Settings -> Performance -> Advanced -> Virtual Memory" -ForegroundColor Yellow
                 Write-Host "2. uncheck `"Automatically manage paging file size for all drives`"" -ForegroundColor Yellow
                 Write-Host "3. select `"Custom size`"" -ForegroundColor Yellow
-                Write-Host "4. enter $($GpuMemSizeMB) into the fields `"Initial Size (MB)`" and `"Maximum Size (MB)`"" -ForegroundColor Yellow
+                Write-Host "4. enter $($CpuMemSizeMB + $GpuMemSizeMB) into the fields `"Initial Size (MB)`" and `"Maximum Size (MB)`"" -ForegroundColor Yellow
                 Write-Host "5. click onto `"Set`" and then `"OK`"" -ForegroundColor Yellow
                 Write-Host " "
             } else {
@@ -352,7 +362,7 @@ function Start-Core {
         Set-PresetDefault
 
         if (-not (Test-Path $ConfigFile)) {
-            $Parameters = @{VersionCompatibility=$Session.Version}
+            $Parameters = [PSCustomObject]@{VersionCompatibility=$Session.Version}
             $Session.DefaultValues.Keys | ForEach-Object {$Parameters | Add-Member $_ "`$$($_)" -ErrorAction Ignore -Force}
             Set-ContentJson -PathToFile $ConfigFile -Data $Parameters > $null        
         } else {
@@ -366,11 +376,11 @@ function Start-Core {
                     Write-Log -Level Warn "The file $ConfigFileForUpdate contains JSON syntax errors: $($_.Exception.Message)"
                     $ConfigForUpdate = $null
                 }
-                if ($ConfigForUpdate) {
+                if ($ConfigForUpdate -is [PSCustomObject]) {
                     $ConfigForUpdate_changed = $false
                     if ($ConfigForUpdate.PSObject.Properties.Name -icontains "LocalAPIport") {$ConfigForUpdate | Add-Member APIport $ConfigForUpdate.LocalAPIport -Force}
                     $MPHLegacyUpdate = if ($ConfigForUpdate.PSObject.Properties.Name -icontains "API_ID") {@{UserName=$ConfigForUpdate.UserName;API_ID=$ConfigForUpdate.API_ID;API_Key=$ConfigForUpdate.API_Key}}
-                    Compare-Object @($ConfigForUpdate.PSObject.Properties.Name) @($Session.DefaultValues.Keys) | Foreach-Object {
+                    Compare-Object @($ConfigForUpdate.PSObject.Properties.Name | Select-Object) @($Session.DefaultValues.Keys) | Foreach-Object {
                         if ($_.SideIndicator -eq "=>") {$ConfigForUpdate | Add-Member $_.InputObject "`$$($_.InputObject)";$ConfigForUpdate_changed=$true}
                         elseif ($_.SideIndicator -eq "<=" -and @("API_ID","API_Key","UserName","LocalAPIport","RemoteAPI","ConfigFile","ExcludeNegativeProfit","DisableAutoUpdate","Regin","Debug","Verbose","ErrorAction","WarningAction","InformationAction","ErrorVariable","WarningVariable","InformationVariable","OutVariable","OutBuffer","PipelineVariable") -icontains $_.InputObject) {$ConfigForUpdate.PSObject.Properties.Remove($_.InputObject);$ConfigForUpdate_changed=$true}
                     }
@@ -506,6 +516,21 @@ function Start-Core {
 
     #Load databases, that only need updates once in a while
     Get-WorldCurrencies -Silent -EnableRemoteUpdate
+
+    #Check for unclean shutdown
+    try {
+        Write-Host "Checking last shutdown .. " -NoNewline
+        if (Test-Path ".\Data\rbm.pid") {
+            Write-Host "crashed" -ForegroundColor Red
+            $Session.ReportUnclean = $true
+        } else {
+            Write-Host "ok" -ForegroundColor Green
+        }
+
+        $PID | Out-File ".\Data\rbm.pid"
+    } catch {
+        if ($Error.Count){$Error.RemoveAt(0)}
+    }
 
     $true
 }
@@ -864,10 +889,13 @@ function Invoke-Core {
         $API.APIPassword = $Session.Config.APIPassword
         $API.MaxLoginAttemps = $Session.Config.APImaxLoginAttemps
         $API.BlockLoginAttemptsTime = ConvertFrom-Time $Session.Config.APIblockLoginAttemptsTime
+        $API.AllowIPs = $Session.Config.APIallowIPs
         $API.MachineName = $Session.MachineName
     }
 
-    $API.LockConfig = $Session.Config.APIlockConfig
+    if ($CheckConfig -or $Session.RoundCounter -eq 0) {
+        Set-APIConfig
+    }
 
     $API.PauseMiners.Pause       = $Global:PauseMiners.Test()
     $API.PauseMiners.PauseIA     = $Global:PauseMiners.TestIA()
@@ -876,7 +904,12 @@ function Invoke-Core {
     $API.CmdKey = ''
 
     if (Test-Path ".\Data\sysinfo.json") {
-        $Session.SysInfo = Get-ContentByStreamReader ".\Data\sysinfo.json" -ErrorAction Ignore | ConvertFrom-Json -ErrorAction Ignore
+        try {
+            $Session.SysInfo = Get-ContentByStreamReader ".\Data\sysinfo.json" | ConvertFrom-Json -ErrorAction Stop
+        } catch {
+            if ($Error.Count){$Error.RemoveAt(0)}
+            Write-Log -Level Info "SysInfo.json contains syntax error: $($_.Exception.Message)"
+        }
     }
 
     if ($CheckConfig) {Update-WatchdogLevels -Reset}
@@ -1052,10 +1085,12 @@ function Invoke-Core {
                     $_ | Add-Member DayOfWeek $([string]("$($_.DayOfWeek -replace "[^0-6\*]+")"[0])) -Force
                     $_ | Add-Member From $(Get-HourMinStr $_.From) -Force
                     $_ | Add-Member To   $(Get-HourMinStr $_.To -to) -Force
-                    $_ | Add-Member PowerPrice $($_.PowerPrice -replace ",","." -replace "[^0-9\.]+") -Force
+                    $_ | Add-Member PowerPrice "$($_.PowerPrice -replace ",","." -replace "[^0-9\.]+")" -Force
                     $_ | Add-Member Enable $(Get-Yes $_.Enable) -Force
                     $_ | Add-Member Pause  $(Get-Yes $_.Pause)  -Force
                     $_ | Add-Member EnableUpdate  $(Get-Yes $_.EnableUpdate)  -Force
+                    $_ | Add-Member PauseRentals $(Get-Yes $_.PauseRentals) -Force
+                    $_ | Add-Member MRRPriceFactor "$($_.MRRPriceFactor -replace ",","." -replace "[^0-9\.]+")" -Force
                     $_ | Add-Member EnableMiningHeatControl $(if ($_.EnableMiningHeatControl -eq "") {$Session.Config.EnableMiningHeatControl} else {Get-Yes $_.EnableMiningHeatControl}) -Force
                     $_ | Add-Member MiningHeatControl "$($_.MiningHeatControl -replace ",","." -replace "[^0-9\.]+")" -Force
 
@@ -1071,6 +1106,7 @@ function Invoke-Core {
                     try {$MiningHeatControl = [Double]$MiningHeatControl} catch {if ($Error.Count){$Error.RemoveAt(0)};$MiningHeatControl = $Session.Config.MiningHeatControl}
                     $MiningHeatControl = [Math]::Round([Math]::Max([Math]::Min($MiningHeatControl,5.0),0.0),1)
                     $_.MiningHeatControl = $MiningHeatControl
+                    try {$_.MRRPriceFactor = [Double]$_.MRRPriceFactor} catch {if ($Error.Count){$Error.RemoveAt(0)};$_.MRRPriceFactor = 0}
                     $Session.Config.Scheduler.Add($_) > $null
                 }
             }
@@ -1093,6 +1129,7 @@ function Invoke-Core {
                     $Session.Config.Devices.$p | Add-Member Algorithm @(($Session.Config.Devices.$p.Algorithm | Select-Object) | Where-Object {$_} | Foreach-Object {Get-Algorithm $_}) -Force
                     $Session.Config.Devices.$p | Add-Member ExcludeAlgorithm @(($Session.Config.Devices.$p.ExcludeAlgorithm | Select-Object) | Where-Object {$_} | Foreach-Object {Get-Algorithm $_}) -Force
                     $Session.Config.Devices.$p | Add-Member DisableDualMining ($Session.Config.Devices.$p.DisableDualMining -and (Get-Yes $Session.Config.Devices.$p.DisableDualMining)) -Force
+                    $Session.Config.Devices.$p | Add-Member EnableLHR $(if ("$($Session.Config.Devices.$p.EnableLHR)" -ne "") {Get-Yes $Session.Config.Devices.$p.EnableLHR} else {$null}) -Force
                     if ($p -ne "CPU" -and -not $Session.Config.Devices.$p.DefaultOCprofile) {
                         $Session.Config.Devices.$p | Add-Member DefaultOCprofile $OCprofileFirst -Force
                         if ($Session.Config.EnableOCprofiles) {
@@ -1286,11 +1323,13 @@ function Invoke-Core {
     $PowerPrice              = [Double]$Session.Config.PowerPrice
     $EnableMiningHeatControl = $Session.Config.EnableMiningHeatControl
     $MiningHeatControl       = $Session.Config.MiningHeatControl
+    $PauseRentals            = $false
+    $MRRPriceFactor          = 0
     $TimeOfDay = (Get-Date).TimeOfDay.ToString("hh\:mm")
     $DayOfWeek = "$([int](Get-Date).DayOfWeek)"
     $Scheduler = $null
-    $Session.Config.Scheduler.Where({$_.Enable -and $_.DayOfWeek -eq "*" -and $TimeOfDay -ge $_.From -and $TimeOfDay -le $_.To}).ForEach({$PowerPrice = [Double]$_.PowerPrice;$EnableMiningHeatControl = $_.EnableMiningHeatControl;$MiningHeatControl = $_.MiningHeatControl;$PauseByScheduler = $_.Pause -and -not $Session.IsExclusiveRun;$Scheduler = $_})
-    $Session.Config.Scheduler.Where({$_.Enable -and $_.DayOfWeek -match "^\d$" -and $DayOfWeek -eq $_.DayOfWeek -and $TimeOfDay -ge $_.From -and $TimeOfDay -le $_.To}).ForEach({$PowerPrice = [Double]$_.PowerPrice;$EnableMiningHeatControl = $_.EnableMiningHeatControl;$MiningHeatControl = $_.MiningHeatControl;$PauseByScheduler = $_.Pause -and -not $Session.IsExclusiveRun;$Scheduler = $_})
+    $Session.Config.Scheduler.Where({$_.Enable -and $_.DayOfWeek -eq "*" -and $TimeOfDay -ge $_.From -and $TimeOfDay -le $_.To}).ForEach({$PowerPrice = [Double]$_.PowerPrice;$EnableMiningHeatControl = $_.EnableMiningHeatControl;$MiningHeatControl = $_.MiningHeatControl;$PauseByScheduler = $_.Pause -and -not $Session.IsExclusiveRun;$PauseRentals = $_.PauseRentals;$MRRPriceFactor = $_.MRRPriceFactor;$Scheduler = $_})
+    $Session.Config.Scheduler.Where({$_.Enable -and $_.DayOfWeek -match "^\d$" -and $DayOfWeek -eq $_.DayOfWeek -and $TimeOfDay -ge $_.From -and $TimeOfDay -le $_.To}).ForEach({$PowerPrice = [Double]$_.PowerPrice;$EnableMiningHeatControl = $_.EnableMiningHeatControl;$MiningHeatControl = $_.MiningHeatControl;$PauseByScheduler = $_.Pause -and -not $Session.IsExclusiveRun;$PauseRentals = $_.PauseRentals;$MRRPriceFactor = $_.MRRPriceFactor;$Scheduler = $_})
 
     $Global:PauseMiners.Set([PauseStatus]::ByScheduler,$PauseByScheduler)
 
@@ -1301,6 +1340,8 @@ function Invoke-Core {
     $Session.CurrentPowerPrice              = $PowerPrice
     $Session.CurrentEnableMiningHeatControl = $EnableMiningHeatControl
     $Session.CurrentMiningHeatControl       = $MiningHeatControl
+    $Session.PauseRentals                   = $PauseRentals
+    $Session.MRRPriceFactor                 = $MRRPriceFactor
 
     $API.CurrentPowerPrice                  = $Session.CurrentPowerPrice
     $API.CurrentEnableMiningHeatControl     = $Session.CurrentEnableMiningHeatControl
@@ -1676,22 +1717,22 @@ function Invoke-Core {
     $API.ActualRates = $ActualRates
 
     #PowerPrice check
-    $Session.PowerPriceBTC = 0
-    if ($Session.Config.PowerPrice -gt 0 -and $Session.Config.PowerPriceCurrency) {
-        if ($Global:Rates."$($Session.Config.PowerPriceCurrency)") {
-            $Session.PowerPriceBTC = [Double]$Session.Config.PowerPrice/[Double]$Global:Rates."$($Session.Config.PowerPriceCurrency)"
-        }
-    }
-    $API.PowerPriceBTC = $Session.PowerPriceBTC
-
+    $Session.PowerPriceBTC        = 0
+    $Session.FixedCostPerDayBTC   = 0
     $Session.CurrentPowerPriceBTC = 0
-    if ($Session.CurrentPowerPrice -gt 0 -and $Session.Config.PowerPriceCurrency) {
-        if ($Global:Rates."$($Session.Config.PowerPriceCurrency)") {
-            $Session.CurrentPowerPriceBTC = [Double]$Session.CurrentPowerPrice/[Double]$Global:Rates."$($Session.Config.PowerPriceCurrency)"
-        } else {
+
+    if ($Session.Config.PowerPriceCurrency) {
+        if ($PowerPrice_Rate = [Double]$Global:Rates."$($Session.Config.PowerPriceCurrency)") {
+            $Session.PowerPriceBTC        = [Double]$Session.Config.PowerPrice/$PowerPrice_Rate
+            $Session.FixedCostPerDayBTC   = [Double]$Session.Config.FixedCostPerDay/$PowerPrice_Rate
+            $Session.CurrentPowerPriceBTC = [Double]$Session.CurrentPowerPrice/$PowerPrice_Rate
+        } elseif ($Session.CurrentPowerPrice) {
             Write-Log -Level Warn "Powerprice currency $($Session.Config.PowerPriceCurreny) not found. Cost of electricity will be ignored."
         }
     }
+
+    $API.PowerPriceBTC = $Session.PowerPriceBTC
+    $API.FixedCostPerDayBTC = $Session.FixedCostPerDayBTC
     $API.CurrentPowerPriceBTC = $Session.CurrentPowerPriceBTC
 
     #Load the stats
@@ -2460,8 +2501,8 @@ function Invoke-Core {
         try {$Miner_Difficulty = [double]($Miner_Difficulty -replace ",","." -replace "[^\d\.]")} catch {if ($Error.Count){$Error.RemoveAt(0)};$Miner_Difficulty=0.0}
         if ($Miner.Arguments) {$Miner.Arguments = $Miner.Arguments -replace "\`$difficulty",$Miner_Difficulty -replace "{diff:(.+?)}","$(if ($Miner_Difficulty -gt 0){"`$1"})" -replace "{workername}|{workername:$($Session.Config.WorkerName)}",$(@($Miner.DeviceModel -split '\-' | Foreach-Object {if ($Session.Config.Devices.$_.Worker) {$Session.Config.Devices.$_.Worker} else {$Session.Config.WorkerName}} | Select-Object -Unique) -join '_') -replace "{workername:(.+?)}","`$1"}
 
-        if (-not $Miner.ExtendInterval) {$Miner.ExtendInterval = 1}
-        if (-not $Miner.Penalty)        {$Miner.Penalty = 0}
+        if (-not $Miner.ExtendInterval -or $Session.Config.DisableExtendInterval) {$Miner.ExtendInterval = 1}
+        if (-not $Miner.Penalty) {$Miner.Penalty = 0}
     })
 
     if ($Miner_CommonCommands_array -ne $null) {Remove-Variable "Miner_CommonCommands_array"}
@@ -2701,6 +2742,7 @@ function Invoke-Core {
             $ActiveMiner.DevFee             = $Miner.DevFee
             $ActiveMiner.OCprofile          = $Miner.OCprofile
             $ActiveMiner.EnableOCprofile    = $Session.Config.EnableOCProfiles
+            $ActiveMiner.ExtendInterval     = $Miner.ExtendInterval
             $ActiveMiner.FaultTolerance     = $Miner.FaultTolerance
             $ActiveMiner.Penalty            = $Miner.Penalty
             $ActiveMiner.ManualUri          = "$Miner_ManualUri"
@@ -2831,7 +2873,7 @@ function Invoke-Core {
         
         #Get most profitable miner combination
 
-        $ActiveMiners_Sorted = @($Global:ActiveMiners.Where({$_.Enabled}) | Sort-Object -Descending {$_.IsExclusiveMiner}, {$_.IsLocked}, {($_ | Where-Object Profit -EQ $null | Measure-Object).Count}, {$_.IsFocusWalletMiner}, {$_.PostBlockMining -gt 0}, {$_.IsRunningFirstRounds -and -not $_.NeedsBenchmark}, {($_ | Measure-Object Profit_Bias -Sum).Sum}, {$_.Benchmarked}, {$(if ($Session.Config.DisableExtendInterval){0}else{$_.ExtendInterval})}, {$_.Algorithm[0] -eq $_.BaseAlgorithm[0]})
+        $ActiveMiners_Sorted = @($Global:ActiveMiners.Where({$_.Enabled}) | Sort-Object -Descending {$_.IsExclusiveMiner}, {$_.IsLocked}, {($_ | Where-Object Profit -EQ $null | Measure-Object).Count}, {$_.IsFocusWalletMiner}, {$_.PostBlockMining -gt 0}, {$_.IsRunningFirstRounds -and -not $_.NeedsBenchmark}, {($_ | Measure-Object Profit_Bias -Sum).Sum}, {$_.Benchmarked}, {$_.ExtendInterval}, {$_.Algorithm[0] -eq $_.BaseAlgorithm[0]})
 
         $BestMiners = @()
 
@@ -2919,7 +2961,7 @@ function Invoke-Core {
 
         if (($NewPools | Measure-Object).Count -gt 0 -and $Check_Profitability) {
             $PowerOffset_Watt = $Session.Config.PowerOffset
-            $PowerOffset_Cost = [Double]($PowerOffset_Watt*24/1000 * $Session.CurrentPowerPriceBTC) + $Session.Config.FixedCostPerDay
+            $PowerOffset_Cost = [Double]($PowerOffset_Watt*24/1000 * $Session.CurrentPowerPriceBTC) + $Session.FixedCostPerDayBTC
             if ((($BestMiners_Combo.Profit | Measure-Object -Sum).Sum - $PowerOffset_Cost) -le 0) {
                 if ($Session.Config.CheckProfitability -and ($BestMiners_Combo | Where-Object {$_.IsExclusiveMiner -or $_.IsLocked} | Measure-Object).Count -eq 0) {$Session.Profitable = $false}
                 if (-not $Session.Profitable -or -not $Session.Config.CheckProfitability) {
@@ -3223,7 +3265,7 @@ function Invoke-Core {
         if ($Session.Benchmarking) {
             Write-Log -Level Warn "Benchmarking in progress: $($MinersNeedingBenchmarkCount) miner$(if ($MinersNeedingBenchmarkCount -gt 1){'s'}) left, interval is set to $($Session.Config.BenchmarkInterval) seconds."
             $MinersNeedingBenchmarkWithEI = ($MinersNeedingBenchmark | Where-Object {$_.ExtendInterval -gt 1 -and $_.ExtendInterval -ne $null} | Measure-Object).Count
-            if ($Session.Config.UIFullBenchmarkList -or (-not $Session.Config.DisableExtendInterval -and $MinersNeedingBenchmarkWithEI -gt 0)) {
+            if ($Session.Config.UIFullBenchmarkList -or $MinersNeedingBenchmarkWithEI -gt 0) {
                 $BenchmarkMinutes = [Math]::Ceiling($Session.Config.BenchmarkInterval/60)
                 Write-Host " "
                 Write-Host "Please be patient!" -BackgroundColor Yellow -ForegroundColor Black
@@ -3231,7 +3273,7 @@ function Invoke-Core {
                     Write-Host "RainbowMiner will benchmark $($MinersNeedingBenchmarkWithEI) out of $($MinersNeedingBenchmarkCount) miner$(if ($MinersNeedingBenchmarkCount -gt 1){'s'}) with extended intervals!" -ForegroundColor Yellow
                     Write-Host "These algorithms need a longer time to reach an accurate average hashrate." -ForegroundColor Yellow
                     Write-Host "After that, benchmarking will be much faster ($($BenchmarkMinutes)-$($BenchmarkMinutes*2) minutes per miner)." -ForegroundColor Yellow
-                    Write-Host "If you do not want that accuracy, set DisableExtendInterval to 0 in your config.txt." -ForegroundColor Yellow
+                    Write-Host "If you do not want that accuracy, set DisableExtendInterval to 1 in your config.txt." -ForegroundColor Yellow
                 }
                 $OldForegroundColor = [console]::ForegroundColor
                 [console]::ForegroundColor = "Yellow"
@@ -3313,7 +3355,7 @@ function Invoke-Core {
     #Get worker specific profits without cost
 
     $CurrentProfitTotal = $CurrentProfitWithoutCostTotal = ($Global:ActiveMiners.Where({$_.Status -eq [MinerStatus]::Running}).Profit | Measure-Object -Sum).Sum
-    if ($Session.Config.UsePowerPrice) {$CurrentProfitTotal -= $PowerOffset_Cost + $Session.Config.FixedCostPerDay;$CurrentProfitWithoutCostTotal += ($Global:ActiveMiners.Where({$_.Status -eq [MinerStatus]::Running}).Profit_Cost | Measure-Object -Sum).Sum}
+    if ($Session.Config.UsePowerPrice) {$CurrentProfitTotal -= $PowerOffset_Cost;$CurrentProfitWithoutCostTotal += ($Global:ActiveMiners.Where({$_.Status -eq [MinerStatus]::Running}).Profit_Cost | Measure-Object -Sum).Sum}
 
     #Display exchange rates
     [System.Collections.Generic.List[string]]$StatusLine = @()
@@ -3831,6 +3873,9 @@ function Stop-Core {
             }
         }
     }
+
+    if (Test-Path ".\Data\rbm.pid") {Remove-Item ".\Data\rbm.pid" -Force -ErrorAction Ignore}
+
     Stop-Autoexec
     [console]::TreatControlCAsInput = $false
 }
@@ -4152,9 +4197,11 @@ function Invoke-ReportMinerStatus {
         $Session.ConsoleCapture = $false
     }
 
-    $Version = "RainbowMiner $($Session.Version.ToString())"
-    $Status = if ($Global:PauseMiners.Test()) {"Paused"} elseif (-not $Session.Profitable) {"Waiting"} else {"Running"}
-    $ReportRates = [PSCustomObject]@{}
+    $Version      = "RainbowMiner $($Session.Version.ToString())"
+    $Status       = if ($Global:PauseMiners.Test()) {"Paused"} elseif (-not $Session.Profitable) {"Waiting"} else {"Running"}
+    $UncleanAlert = if ($Session.ReportUnclean) {$Session.ReportUnclean = $false; $true} else {$false}
+    $ReportRates  = [PSCustomObject]@{}
+
     $Session.Config.Currency | Where-Object {$Global:Rates.ContainsKey($_)} | Foreach-Object {$ReportRates | Add-Member $_ $Global:Rates.$_ -Force}
 
     [System.Collections.Generic.List[string]]$Including_Strings = @()
@@ -4318,9 +4365,45 @@ function Invoke-ReportMinerStatus {
 
         $ReportAPI | Where-Object {-not $ReportDone -and $ReportUrl -match $_.match} | Foreach-Object {
             $ReportUrl = $_.apiurl
+
             Write-Log -Level Info "Go report, go! $($ReportUrl)"
-            $Response = Invoke-GetUrl $ReportUrl -body @{user = $Session.Config.MinerStatusKey; email = $Session.Config.MinerStatusEmail; pushoverkey = $Session.Config.PushOverUserKey; worker = $Session.Config.WorkerName; machinename = $Session.MachineName; machineip = $Session.MyIP; cpu = "$($Global:DeviceCache.DevicesByTypes.CPU.Model_Name | Select-Object -Unique)"; cputemp = "$(($Session.SysInfo.Cpus.Temperature | Measure-Object -Average).Average)"; cpuload = "$($Session.SysInfo.CpuLoad)"; cpupower = "$(($Session.SysInfo.Cpus.PowerDraw | Measure-Object -Sum).Sum)"; version = $Version; status = $Status; profit = "$Profit"; powerdraw = "$PowerDraw"; earnings_avg = "$($Session.Earnings_Avg)"; earnings_1d = "$($Session.Earnings_1d)"; pool_totals = ConvertTo-Json @($Pool_Totals | Select-Object) -Depth 10 -Compress; rates = ConvertTo-Json $ReportRates -Depth 10 -Compress; interval = $ReportInterval; uptime = "$((Get-Uptime).TotalSeconds)"; sysuptime = "$((Get-Uptime -System).TotalSeconds)";maxtemp = "$($Session.Config.MinerStatusMaxTemp)"; tempalert=$TempAlert; maxcrashes = "$($Session.Config.MinerStatusMaxCrashesPerHour)"; crashalert=$CrashAlert; crashdata=$CrashData; diskmingbalert=$DiskMinGBAlert; console=$Console; devices=$DeviceData; data = $minerreport}
+
+            $Response = Invoke-GetUrl $ReportUrl -body @{
+                            user           = $Session.Config.MinerStatusKey
+                            email          = $Session.Config.MinerStatusEmail
+                            pushoverkey    = $Session.Config.PushOverUserKey
+                            worker         = $Session.Config.WorkerName
+                            machinename    = $Session.MachineName
+                            machineip      = $Session.MyIP
+                            cpu            = "$($Global:DeviceCache.DevicesByTypes.CPU.Model_Name | Select-Object -Unique)"
+                            cputemp        = "$(($Session.SysInfo.Cpus.Temperature | Measure-Object -Average).Average)"
+                            cpuload        = "$($Session.SysInfo.CpuLoad)"
+                            cpupower       = "$(($Session.SysInfo.Cpus.PowerDraw | Measure-Object -Sum).Sum)"
+                            version        = $Version
+                            status         = $Status
+                            profit         = "$Profit"
+                            powerdraw      = "$PowerDraw"
+                            earnings_avg   = "$($Session.Earnings_Avg)"
+                            earnings_1d    = "$($Session.Earnings_1d)"
+                            pool_totals    = ConvertTo-Json @($Pool_Totals | Select-Object) -Depth 10 -Compress
+                            rates          = ConvertTo-Json $ReportRates -Depth 10 -Compress
+                            interval       = $ReportInterval
+                            uptime         = "$((Get-Uptime).TotalSeconds)"
+                            sysuptime      = "$((Get-Uptime -System).TotalSeconds)"
+                            maxtemp        = "$($Session.Config.MinerStatusMaxTemp)"
+                            tempalert      = $TempAlert
+                            maxcrashes     = "$($Session.Config.MinerStatusMaxCrashesPerHour)"
+                            crashalert     = $CrashAlert
+                            crashdata      = $CrashData
+                            diskmingbalert = $DiskMinGBAlert
+                            uncleanalert   = $UncleanAlert
+                            console        = $Console
+                            devices        = $DeviceData
+                            data           = $minerreport
+                        }
+
             Write-Log -Level Info "Done report, done."
+
             if ($Response -is [string] -or $Response.Status -eq $null) {$ReportStatus = $Response -split "[\r\n]+" | Select-Object -first 1}
             else {
                 $ReportStatus = $Response.Status

@@ -24,13 +24,6 @@
         "Acepool" = [PSCustomObject]@{
             Currencies=@("BEAM","XGM")
         }
-        "AHashPool" = [PSCustomObject]@{
-            Fields=[PSCustomObject]@{Penalty=22}
-            Currencies=@("BTC")
-            Autoexchange=$true
-            Yiimp=$true
-            BalancesKeepAlive="90d"
-        }
         "Aionmine" = [PSCustomObject]@{
             Currencies=@("AION")
         }
@@ -87,6 +80,11 @@
         }
         "BtcPrivate" = [PSCustomObject]@{
             Currencies=@("BTCP")
+        }
+        "C3pool" = [PSCustomObject]@{
+            Fields=[PSCustomObject]@{Password="x"}
+            SetupFields=[PSCustomObject]@{Password="Enter your C3pool password (eMail or Password)"}
+            Currencies=@("XMR")
         }
         "Cortexmint" = [PSCustomObject]@{
             Currencies=@("CTXC")
@@ -256,6 +254,7 @@
                         API_Key=""
                         API_Secret=""
                         EnableMining="0"
+                        EnableMaintenanceMode="0"
                         UseWorkerName=""
                         ExcludeWorkerName=""
                         ExcludeRentalId=""
@@ -306,6 +305,7 @@
                         UseWorkerName="Enter workernames to explicitly use (leave empty for all=default)"
                         ExcludeWorkerName="Enter workernames to explicitly exclude (leave empty for none=default)"
                         ExcludeRentalId="In case of a rental dispute (wrong renter pool etc.), exclude these rentals by rental id, until they are cancelled (leave empty for none=default)"
+                        EnableMaintenanceMode="Enable maintenance mode - all unrented rigs will be disabled"
                         EnableAutoCreate="Automatically create MRR-rigs"
                         EnableAutoUpdate="Automatically update MRR-rigs"
                         EnableAutoBenchmark="Enable benchmark of missing algorithms (it will mine to RainbowMiner wallets during benchmark, only)"
@@ -431,6 +431,12 @@
         }
         "Tecracoin" = [PSCustomObject]@{
             Currencies=@("TCR")
+        }
+        "TonPool" = [PSCustomObject]@{
+            Currencies=@("TON")
+        }
+        "TONWhales" = [PSCustomObject]@{
+            Currencies=@("TON")
         }
         "unMineable" = [PSCustomObject]@{
             Currencies=@("BTC","BTT","ETH","TRX","UNI","XTZ","YFI")

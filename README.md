@@ -23,7 +23,7 @@ Features: easy setup wizard with ad-hoc working default (no editing of files nee
 
 - **Multi-Platform (AMD, INTEL, NVIDIA, CPU) on Windows and Linux**
 - **Profit auto-switch between mining programs and [algorithm](https://rbminer.net/algorithms/) for GPUs & CPUs (optimized one for each vendor vs. one for each possible device combination)**
-- **Profit auto-switch between pools (2Miners, 6Block, Acepool, AHashPool, BaikalMiner, Binance, BlockCruncher, BlockMasters, Bsod, BtcPrivate, Cortexmint, EthashPool, Ethermine, [ezil.me](https://ezil.me/?p=dcf9), F2pool, FairPool, FlexPool, FlockPool, FluxPools, FlyPool, GosCx, GrinMint, Hashcryptos, Hashpool, HashVault, [HeroMiners](https://herominers.com), Hiveon, Icemining, LeafPool, LuckPool, LuckyPool, Minerpool, Minafacil, MinerRocks, MiningDutch, MiningPoolHub, MiningPoolOvh, [MiningRigRentals](https://www.miningrigrentals.com?ref=2598069), Mintpond, MoneroOcean, Nanopool, [Nicehash](https://www.nicehash.com/?refby=c402ea4d-9203-414c-b96e-526e34ad20e1), Poolin, Poolium, Ravenminer, SeroPool, SoloPool, Sunpool, SuprNova, unMineable, UUpool, WoolyPooly, [Zergpool](https://zergpool.com/?address=&refcode=78f6ec9427d56069f93709d7805a6a56) and Zpool)**
+- **Profit auto-switch between pools (2Miners, 6Block, Acepool, BaikalMiner, Binance, BlockCruncher, BlockMasters, Bsod, BtcPrivate, C3pool, Cortexmint, EthashPool, Ethermine, [ezil.me](https://ezil.me/?p=dcf9), F2pool, FairPool, FlexPool, FlockPool, FluxPools, FlyPool, GosCx, GrinMint, Hashcryptos, Hashpool, HashVault, [HeroMiners](https://herominers.com), Hiveon, Icemining, LeafPool, LuckPool, LuckyPool, Minerpool, Minafacil, MinerRocks, MiningDutch, MiningPoolHub, MiningPoolOvh, [MiningRigRentals](https://www.miningrigrentals.com?ref=2598069), Mintpond, MoneroOcean, Nanopool, [Nicehash](https://www.nicehash.com/?refby=c402ea4d-9203-414c-b96e-526e34ad20e1), Poolin, Poolium, Ravenminer, SeroPool, SoloPool, Sunpool, SuprNova, TonPool, TONWhales, unMineable, UUpool, WoolyPooly, [Zergpool](https://zergpool.com/?address=&refcode=78f6ec9427d56069f93709d7805a6a56) and Zpool)**
 - **Integrate own and custom pools**
 - **Profit calculation, including real cost of electricity per miner**
 - **Uses the top actual available miner programs (Bminer, Ccminer, Claymore, CryptoDredge, Dstm, EnemyZ, Ewbf, Gminer, NBminer, Sgminer, SrbMiner, T-Rex, Xmrig and many more)**
@@ -226,7 +226,7 @@ Alternative: start as Linux `screen`:
 
 ### Done!
 
-<details><summary>Valid poolnames</summary>2Miners, 2MinersAE, 2MinersSolo, 6Block, Acepool, AHashPool, Aionmine, BaikalMine, BaikalMineSolo, Binance, BlockMasters, BlockMastersCoins, Bsod, BsodParty, BsodSolo, BtcPrivate, Cortexmint, CpuPool, Crazypool, EthashPool, Ethermine, Ezil, F2pool, FairPool, FlexPool, FlockPool, FluxPools, FlyPool, GosCx, GosCxParty, GosCxSolo, Grinmint, Hashcryptos, Hashpool, HashVault, HeroMiners, Hiveon, Icemining, LeafPool, LuckPool, LuckyPool, Luxor, Minafacil, Minerpool, MinerRocks, Minexmr, MiningDutch, MiningDutchCoins, MiningPoolHub, MiningPoolHubCoins, MiningPoolOvh, MiningRigRentals, Mintpond, MoneroOcean, Nanopool, NiceHash, NLpool, Poolin, Poolium, PoolSexy, ProHashing, Ravenminer, RPlant, SeroPool, SoloPool, Sunpool, SuprNova, Tecracoin, unMineable, UUpool, WhatToMine, WoolyPooly, WoolyPoolySolo, ZergPool, ZergPoolCoins, ZergPoolCoinsParty, ZergPoolCoinsSolo, ZergPoolParty, ZergPoolSolo, Zpool, ZpoolCoins</details>
+<details><summary>Valid poolnames</summary>2Miners, 2MinersAE, 2MinersSolo, 6Block, Acepool, Aionmine, BaikalMine, BaikalMineSolo, Binance, BlockMasters, BlockMastersCoins, Bsod, BsodParty, BsodSolo, BtcPrivate, C3pool, Cortexmint, CpuPool, Crazypool, EthashPool, Ethermine, Ezil, F2pool, FairPool, FlexPool, FlockPool, FluxPools, FlyPool, GosCx, GosCxParty, GosCxSolo, Grinmint, Hashcryptos, Hashpool, HashVault, HeroMiners, Hiveon, Icemining, LeafPool, LuckPool, LuckyPool, Luxor, Minafacil, Minerpool, MinerRocks, Minexmr, MiningDutch, MiningDutchCoins, MiningPoolHub, MiningPoolHubCoins, MiningPoolOvh, MiningRigRentals, Mintpond, MoneroOcean, Nanopool, NiceHash, NLpool, Poolin, Poolium, PoolSexy, ProHashing, Ravenminer, RPlant, SeroPool, SoloPool, Sunpool, SuprNova, Tecracoin, TonPool, TONWhales, unMineable, UUpool, WhatToMine, WoolyPooly, WoolyPoolySolo, ZergPool, ZergPoolCoins, ZergPoolCoinsParty, ZergPoolCoinsSolo, ZergPoolParty, ZergPoolSolo, Zpool, ZpoolCoins</details>
 <details><summary>Valid algorithms</summary> Balloon, Bitcore, Blakecoin, Blake2s, BlakeVanilla, C11, Cortex, CryptoNightV8, Cuckaroo29, Cuckaroo29s, Ethash, X11, Decred, Equihash, Equihash144, Equihash192, Equihash-BTG, Groestl, Hex, HMQ1725, HSR, JHA, Keccak, Lbry, Lyra2RE2, Lyra2z, MyriadGroestl, NeoScrypt, Pascal, Phi, Phi2, Polytimos, Quark, Qubit, Scrypt, SHA256, Sib, Skunk, Skein, Tensority, Timetravel, Tribus, Veltor, X11, X12, X11evo, X16R, X16S, X17, X18, X21s, X22i, Yescrypt and many more: https://rbminer.net/algorithms/</details>
 
 ## HOTKEYS
@@ -357,7 +357,6 @@ If "EnableServerPools" is set to "1", the client will download the server's pool
 <details><summary>2MinersSolo</summary> https://www.2miners.com/ no auto-exchange, a separate wallet address is needed for each coin (ETH, XZC and more) you want to mine solo. Set in pools configuration or edit pools.config.txt</details>
 <details><summary>6Block</summary> https://6block.com/ HNS (Handshake) pool, registration mandatory. Create a mining account and enter this account name as wallet in pools configuration or edit pools.config.txt</details>
 <details><summary>Acepool</summary> https://acepool.top/ Equihash-pool in eu region for BEAM and XGM(Defis), set your acepool public key (can be created on their website) as wallet in pools configuration or edit pools.config.txt</details>
-<details><summary>AHashPool</summary>https://www.ahashpool.com/  auto-exchange and payout in BTC</details>
 <details><summary>Aionmine</summary> https://aionmine.org/ AION/Equihash210,9-pool, pays in AION, enter your Aion wallet address in pools configuration or edit pools.config.txt</details>
 <details><summary>BaikalMine</summary> https://baikalmine.com/ no auto-exchange, enter wallet address for each coin you want to mine. Set in pools configuration or edit pools.config.txt</details>
 <details><summary>BaikalMineSolo</summary> https://baikalmine.com/ no auto-exchange, solo mining, only. Enter wallet address for each coin you want to mine. Set in pools configuration or edit pools.config.txt</details>
@@ -370,6 +369,7 @@ If "EnableServerPools" is set to "1", the client will download the server's pool
 <details><summary>BsodParty</summary> https://bsod.pw/ no auto-exchange, a separate wallet address is needed for each coin you want to mine solo together with others. Set in pools configuration or edit pools.config.txt. Set "PartyPassword" in pools.config.txt for your group</details>
 <details><summary>BsodSolo</summary> https://bsod.pw/ no auto-exchange, a separate wallet address is needed for each coin you want to mine solo. Set in pools configuration or edit pools.config.txt</details>
 <details><summary>BtcPrivate</summary> https://pool.btcprivate.org/ no auto-exchange, dedicated to BitcoinPrivate BTCP mining, a wallet address is needed. Set in pools configuration or edit pools.config.txt</details>
+<details><summary>C3pool</summary> https://c3pool.com/oldui/en/ auto-exchange and payout in XMR, enter your Monero wallet address and a password (either a real password or your email-address) into pools.config.txt to start mining</details>
 <details><summary>Cortexmint</summary> http://cortexmint.com/ CTXC/Cortex-pool, pays in CTXC, enter your Cortex wallet address in pools configuration or edit pools.config.txt</details>
 <details><summary>CpuPool</summary> http://cpu-pool.com/ specialized on CPU mining, no auto-exchange, a separate wallet is needed for each coin you want to mine. Set in pools configuration or edit pools.config.txt</details>
 <details><summary>Crazypool</summary> https://crazypool.org/ no auto-exchange, a separate wallet address is needed for each coin (ETH, ETC, UBQ) you want to mine. Set in pools configuration or edit pools.config.txt</details>
@@ -424,6 +424,8 @@ If "EnableServerPools" is set to "1", the client will download the server's pool
 <details><summary>Sunpool</summary> https://sunpool.top/ Equihash-pool in eu region for BEAM, GRIMM, XGM(Defis) and ATOMI, set your sunpool public key (can be created on their website) as wallet in pools configuration or edit pools.config.txt</details>
 <details><summary>SuprNova</summary> https://suprnova.cc/ no auto-exchange, enter your SuprNova username as wallet address for each coin you want to mine. Make sure, that your workername on SuprNova matches your rig's name and the SuprNova worker password is "x". Set in pools configuration or edit pools.config.txt</details>
 <details><summary>Tecracoin</summary> https:/pool.tecracoin.io/ no auto-exchange, a separate wallet is needed for each coin you want to mine. Set in pools configuration or edit pools.config.txt</details>
+<details><summary>TonPool</summary> https://www.ton-pool.com/ no auto-exchange, mining TON coin with SHA256ton, only. Registration of your TON wallet via Telegram necessary.</details>
+<details><summary>TONWhales</summary> https://www.tonwhales.com/ no auto-exchange, mining TON coin with SHA256ton, only. Registration of your TON wallet via Telegram necessary.</details>
 <details><summary>unMineable</summary> https://unmineable.com/ auto-exchange and payout in over 50 non-mineable coins like [XTZ](https://unmineable.com/?ref=c4qu-cls0), [UNI](https://unmineable.com/?ref=klty-w0jc), [SUSHI](https://unmineable.com/?ref=vzm5-yhp6), [YFI](https://unmineable.com/?ref=gsx6-01j1), [TRX](https://unmineable.com/?ref=zxih-o6yi) etc. mined with Ethash, Etchash, RandomX or KawPow. Put your coin wallet addresses into pools.config.txt</details>
 <details><summary>UUPool</summary> https://www.uupool.com/ no auto-exchange, a separate wallet is needed for each coin you want to mine. Set in pools configuration or edit pools.config.txt</details>
 <details><summary>WoolyPooly</summary> https://www.woolypooly.com/ no auto-exchange, a separate wallet address is needed for each coin (ETH, CFX, VEIL and more) you want to mine. Set in pools configuration or edit pools.config.txt</details>
@@ -441,7 +443,7 @@ If "EnableServerPools" is set to "1", the client will download the server's pool
 <details><summary>Notes for [NiceHash](https://www.nicehash.com/?refby=c402ea4d-9203-414c-b96e-526e34ad20e1)</summary>
 
 If you plan to mine through Nicehash, I strongly recommend, that you register an account with them ([https://www.nicehash.com/register](https://www.nicehash.com/?refby=c402ea4d-9203-414c-b96e-526e34ad20e1)). In this case, NiceHash will provide you with an extra NiceHash wallet/bitcoin address (RainbowMiner will ask for this address during the setup or configuration process).
-This lowers the minimum payout sum from 0.1BTC (for external wallet) to a very low 0.001BTC (for Nicehash wallet). An additional benefit for Coinbase users: sending BTC from the NiceHash wallet to your Coinbase account is free of charge.</details>
+This lowers the minimum payout sum from 0.1BTC (for external wallet) to a very low 0.001BTC (for Nicehash wallet). Payout via Bitcoin-Lightning channel possible.</details>
 <details><summary>Notes for the pools BlockCruncher, BlockMasters, Bsod, CryptoKnight, GosCx, Hashcryptos, HashPool, Icemining, Minerpool, MinerRocks, NLpool, PocketWhale, ProHashing, Ravenminer, YiiMP and Zpool</summary>
   
 The miner can be setup to mine any coin or currency, that is listed at the respective pool. The pool will then payout to the given non-BTC wallet address. Take into account, that non-BTC payouts depend heavily on that coin being mined. If the pool has not or is not mining that currency, the payouts will be delayed until the pool has mined the blocks. Read the pools websites, about the mineability and reliability of a currency. It's recommended to use BTC as any other coin could be removed at anytime and payouts will not occur. The pools Bsod, CryptoKnight, GosCx, Icemining, Minerpool, MinerRocks, PocketWhale, Ravenminer and Yiimp do not have auto-exchange to BTC. Please be careful, what you choose to mine.
@@ -707,6 +709,13 @@ You may replace $StartPaused and $Interval with your MiningPoolHub USER ID/API K
 - **UIFullBenchmarkList** = Show non-extended benchmarks in minerlist [default=0]
 - **APIPort** = enter a free web-interface port localhost:<port> [default=4000]
 - **APIThreads** = Enter number of possible, parallel API threads (0=automatic, see notes) [default=0]
+- **APIauth** = set to "1" for username/password auth on localhost [default=0]
+- **APIuser** = enter an username for localhost accessability
+- **APIpassword** = enter a password for localhost accessability
+- **APIlockConfig** = set to "1" to lock config and disable save via API/localhost [default=0]
+- **APImaxLoginAttemps** = Maximum number of failed login attempts, until IP gets blocked (0=turn off) [default=3]
+- **APIblockLoginAttemptsTime** = Enter timespan, that an IP gets blocked, after the defined failed login attempts (units allowed, e.h. 1h=one hour, default unit is s=seconds) [default=30m]
+- **APIallowIPs** = Restrict access to the API to specific IP addresses [default=]
 - **EnableAutoUpdate** = set to 1 if you want RainbowMiner to be updated automatically [default=1]
 - **EnableUpdateDuringPause** = set to 1 if you want RainbowMiner to be updated automatically, even if it is paused [default=1]
 - **EnableUpdateWhenScheduled** = set to 1 if the automatic updates should be scheduled: set EnableUpdate to 1 for a schedule in scheduler.config.txt (also, EnableAutoUpdate must be set to 1) [default=0]
@@ -840,13 +849,7 @@ For Client (Runmode=client) setup:
 
 For Server (Runmode=server) setup:
 
-- **APIport** = enter a free web-interface port localhost:<port> [default=4000]
-- **APIauth** = set to "1" for username/password auth on localhost [default=0]
-- **APIuser** = enter an username for localhost accessability
-- **APIpassword** = enter a password for localhost accessability
-- **APIlockConfig** = set to "1" to lock config and disable save via API/localhost [default=0]
-- **APImaxLoginAttemps** = Maximum number of failed login attempts, until IP gets blocked (0=turn off) [default=3]
-- **APIblockLoginAttemptsTime** = Enter timespan, that an IP gets blocked, after the defined failed login attempts (units allowed, e.h. 1h=one hour, default unit is s=seconds) [default=30m]
+- make sure to set **APIport**, **APIauth**, **APIuser**, **APIpassword**, **APIallowIPs**
 
 
 #### Set electricity cost handling
@@ -1007,7 +1010,7 @@ Example:
 
 #### Add additional password parameters for YiiMP based pools
 
-Many of our pools are based on the open-source YiiMP pool (e.g. AHashpool,Blockmaster,Hashcryptos,ZergPool,ZPool etc.). Some of these pools accept additional parameters. A prominent example is the setting of a custom payout limit at ZergPool (pl=x.xx). To add a password parameter, add one line to pools.config.txt in the form `"CURRENCY-Params": "parameters",`. In fact, all parameters will be added to the preset password contents, using a comma.
+Many of our pools are based on the open-source YiiMP pool (e.g. Blockmaster,Hashcryptos,ZergPool,ZPool etc.). Some of these pools accept additional parameters. A prominent example is the setting of a custom payout limit at ZergPool (pl=x.xx). To add a password parameter, add one line to pools.config.txt in the form `"CURRENCY-Params": "parameters",`. In fact, all parameters will be added to the preset password contents, using a comma.
 
 Example 1:
 
@@ -1064,7 +1067,7 @@ Set the parameter(s) to "0", to disable the feature(s) for that pool.
 
 #### Change a pool's time frame (data window)
 
-To override the default data window "average2e" of the YiiMP based pools (AHashPool,BlockMasters,Hashcryptos,ZergPool,Zpool) the parameter "DataWindow" can be added to the pool's configuration record. 
+To override the default data window "average2e" of the YiiMP based pools (BlockMasters,Hashcryptos,ZergPool,Zpool) the parameter "DataWindow" can be added to the pool's configuration record. 
 Possible values are:
 
 - estimate_current (=default): the pool's current calculated profitability-estimation (more switching, relies on the honesty of the pool)
@@ -1405,7 +1408,7 @@ Each device group can be bound to/excluded from specific algorithm and miners by
 Example:
 
     {
-      "GTX1050Ti": [
+      "RTX3060": [
         {
           "Algorithm": "Ethash,x16r",
           "ExcludeAlgorithm": "",
@@ -1414,7 +1417,8 @@ Example:
           "DisableDualMining": "1",
           "DefaultOCprofile": "Profile1",
           "PowerAdjust": "100",
-          "Worker": "my1050"
+          "Worker": "my3060",
+          "EnableLHR": "1"
         }
       ],
       "R290X": [
@@ -1426,17 +1430,19 @@ Example:
           "DisableDualMining": "1",
           "DefaultOCprofile": "Profile1",
           "PowerAdjust": "87.5",
-          "Worker": ""
+          "Worker": "",
+          "EnableLHR": ""
         }
       ]      
     }
 
 This configuration would:
-- bind all GTX1050Ti in the system to Ethash and X16R mining, only, excluding the ClaymoreEthash miner
+- bind all RTX3060 in the system to Ethash and X16R mining, only, excluding the ClaymoreEthash miner
 - setting the flag "DisableDualMining" to "1", all dual-algorithm miners will be removed from this device's list.
 - for custom overclocking Profile1 is used as default for this GPU type
 - set a power adjust factor of 87.5% to the Radeon R290X (if RainbowMiner reported 250W with factor 100%, it will now show 250W x 87.5 / 100 = 175W)
-- the pool worker name for the GTX1050Ti will be set to "my1050". If used in combos, the individual worker names will be combined with _ (underscore)
+- the pool worker name for the RTX3060 will be set to "my3060". If used in combos, the individual worker names will be combined with _ (underscore)
+- the miners Trex and Teamblack will be forced to use LHR magic for the RTX3060s, because "EnableLHR" is set to "1". Leave it empty for automatically use, set to "0" for don't use.
 
 
 ### Config\gpugroups.config.txt
@@ -1647,6 +1653,8 @@ Define different power prices and/or pause miners for different timespans.
 - EnableUpdate: set to "1" to allow automatic updates during this timespan (and if EnableUpdateWhenScheduled is set to 1 in config.txt) [default=0]
 - EnableMiningHeatControl: set to "1" to allow mining heat control during this timespan (and if EnableMiningHeatControl is set to 1 in config.txt) [default=0]
 - MiningHeatControl: set specific mining heat control value, during that timespan
+- PauseRentals: if set to "1", all unrented rigs will be paused during this timespan
+- MRRPriceFactor: set specific price factor for MiningRigRentals, during that timespan
 - Algorithm: restrict mining to specific algorithms, during that timespan
 - ExcludeAlgorithm: disallow mining to specific algorithms, during that timespan
 - CoinSymbol: restrict mining to specific coin symbols, during that timespan
@@ -1776,6 +1784,7 @@ The following are the pool parameters:
 - **UseWorkerName**: Enter list of workernames that should be explicitly used for MRR (leave empty for all) [default=]
 - **ExcludeWorkerName**: Enter list of workernames that should explicitly excluded from the use with MRR (leave empty for none) [default=]
 - **EnableMining**: Enable switching to MiningRigRentals, even it is not rentend (not recommended) [default=0]
+- **EnableMaintenanceMode**: Set to "1" if you are planning to shut down your rig for any reason (e.g. maintenance). RainbowMiner will then disable all unrented rigs, until you reset the parameter back to "0" [default=0]
 - **EnableAutoCreate**: Automatically create MRR-rigs [default=0]
 - **EnableAutoUpdate**: Automatically update MRR-rigs [default=0]
 - **EnableAutoExtend**: Automatically extend MRR rentals, when low average hashrate [default=0]
