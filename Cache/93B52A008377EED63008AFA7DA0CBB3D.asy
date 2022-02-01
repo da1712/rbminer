@@ -1,0 +1,1 @@
+﻿{"etc":{"current_hashrate":670089821494,"average_hashrate":644573898007,"wallets_count":2117,"workers_count":4538,"last_share_timestamp":1640378801},"eth":{"current_hashrate":13228214835751,"average_hashrate":12818483939497,"wallets_count":17445,"workers_count":61158,"last_share_timestamp":1640378801}}

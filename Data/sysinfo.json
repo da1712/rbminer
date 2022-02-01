@@ -1,0 +1,61 @@
+{
+    "CpuLoad":  100,
+    "Cpus":  [
+                 {
+                     "Clock":  3613.69,
+                     "Utilization":  100,
+                     "PowerDraw":  64.91,
+                     "Temperature":  62,
+                     "Method":  "ohm"
+                 }
+             ],
+    "Memory":  {
+                   "TotalGB":  31.9,
+                   "UsedGB":  14.3,
+                   "UsedPercent":  44.67
+               },
+    "Disks":  [
+                  {
+                      "Drive":  "C:",
+                      "Name":  "",
+                      "TotalGB":  222.9,
+                      "UsedGB":  80,
+                      "UsedPercent":  35.91
+                  },
+                  {
+                      "Drive":  "D:",
+                      "Name":  "",
+                      "TotalGB":  1863,
+                      "UsedGB":  1863,
+                      "UsedPercent":  100
+                  },
+                  {
+                      "Drive":  "E:",
+                      "Name":  "",
+                      "TotalGB":  931.5,
+                      "UsedGB":  234.6,
+                      "UsedPercent":  25.18
+                  },
+                  {
+                      "Drive":  "F:",
+                      "Name":  "",
+                      "TotalGB":  465.8,
+                      "UsedGB":  207.8,
+                      "UsedPercent":  44.62
+                  },
+                  {
+                      "Drive":  "G:",
+                      "Name":  "New Volume",
+                      "TotalGB":  1862.9,
+                      "UsedGB":  46.3,
+                      "UsedPercent":  2.48
+                  },
+                  {
+                      "Drive":  "H:",
+                      "Name":  "New Volume",
+                      "TotalGB":  1862.9,
+                      "UsedGB":  0.2,
+                      "UsedPercent":  0.01
+                  }
+              ]
+}

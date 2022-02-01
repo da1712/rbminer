@@ -1,0 +1,86 @@
+[
+    {
+        "symbol":  "CLO",
+        "coin":  "Callisto Network",
+        "algo":  "Ethash",
+        "rpc":  "clo-solo.baikalmine.com",
+        "host":  "clo-solo.baikalmine.com",
+        "port":  [
+                     4433
+                 ],
+        "fee":  1.0,
+        "regions":  [
+                        "eu"
+                    ]
+    },
+    {
+        "symbol":  "ELLA",
+        "coin":  "Ellaism",
+        "algo":  "Ethash",
+        "rpc":  "ell-solo.baikalmine.com",
+        "host":  "ell-solo.baikalmine.com",
+        "port":  [
+                     1015
+                 ],
+        "fee":  1.0,
+        "regions":  [
+                        "eu"
+                    ]
+    },
+    {
+        "symbol":  "ETC",
+        "coin":  "Ethereum Classic",
+        "algo":  "Ethash",
+        "rpc":  "etc-solo.baikalmine.com",
+        "host":  "etc-solo.baikalmine.com",
+        "port":  [
+                     1444
+                 ],
+        "fee":  1.0,
+        "regions":  [
+                        "eu"
+                    ]
+    },
+    {
+        "symbol":  "ETH",
+        "coin":  "Ethereum",
+        "algo":  "Ethash",
+        "rpc":  "eth-solo.baikalmine.com",
+        "host":  "eth-solo.baikalmine.com",
+        "port":  [
+                     1145
+                 ],
+        "fee":  1.0,
+        "regions":  [
+                        "eu"
+                    ]
+    },
+    {
+        "symbol":  "EXP",
+        "coin":  "Expanse",
+        "algo":  "Ethash",
+        "rpc":  "exp-solo.baikalmine.com",
+        "host":  "exp-solo.baikalmine.com",
+        "port":  [
+                     7175
+                 ],
+        "fee":  1.0,
+        "regions":  [
+                        "eu"
+                    ]
+    },
+    {
+        "symbol":  "MOAC",
+        "coin":  "Moac",
+        "algo":  "Ethash",
+        "rpc":  "moac-solo.baikalmine.com",
+        "host":  "moac-solo.baikalmine.com",
+        "port":  [
+                     4545
+                 ],
+        "fee":  1.0,
+        "regions":  [
+                        "eu"
+                    ]
+    }
+]

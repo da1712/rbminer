@@ -1,0 +1,10 @@
+{
+    "Pool":  "HashVault",
+    "Duration":  2.945957548333337,
+    "Cost":  0,
+    "Profit":  0,
+    "ProfitApi":  0,
+    "Power":  0,
+    "Started":  "\/Date(1640100867079)\/",
+    "Updated":  "\/Date(1640107155800)\/"
+}

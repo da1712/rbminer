@@ -1,0 +1,1 @@
+﻿{"stats":{"hashes":"6773378","lastShare":"1621741891","thold":"500000000000","balance":"29939175"},"payments":[]}

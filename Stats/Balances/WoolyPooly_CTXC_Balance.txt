@@ -1,0 +1,27 @@
+{
+    "PoolName":  "WoolyPooly",
+    "Currency":  "CTXC",
+    "Balance":  0.109175876470,
+    "Paid":  0.0,
+    "Earnings":  0.101156918536,
+    "Earnings_1h":  0,
+    "Earnings_1d":  0.101156918536,
+    "Earnings_1w":  0.101156918536,
+    "Earnings_Avg":  0.101156918536,
+    "Last_Earnings":  [
+                          {
+                              "Date":  "\/Date(1640170940996)\/",
+                              "Value":  0.012003763598
+                          },
+                          {
+                              "Date":  "\/Date(1640172756024)\/",
+                              "Value":  0.077601479708
+                          },
+                          {
+                              "Date":  "\/Date(1640174612602)\/",
+                              "Value":  0.011551675230
+                          }
+                      ],
+    "Started":  "\/Date(1640095919155)\/",
+    "Updated":  "\/Date(1640174612602)\/"
+}

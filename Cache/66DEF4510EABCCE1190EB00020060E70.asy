@@ -1,0 +1,1 @@
+﻿{"stats":[{"blocks":667,"hashrate":"91965592747222","miners":121455,"workers":423179}]}

@@ -1,0 +1,19 @@
+{
+    "PoolName":  "HeroMiners",
+    "Currency":  "TUBE",
+    "Balance":  0.000034105,
+    "Paid":  385.5886,
+    "Earnings":  133.055302758,
+    "Earnings_1h":  133.055302758,
+    "Earnings_1d":  133.055302758,
+    "Earnings_1w":  133.055302758,
+    "Earnings_Avg":  133.055302758,
+    "Last_Earnings":  [
+                          {
+                              "Date":  "\/Date(1640377082756)\/",
+                              "Value":  133.055302758
+                          }
+                      ],
+    "Started":  "\/Date(1640095919155)\/",
+    "Updated":  "\/Date(1640377082756)\/"
+}

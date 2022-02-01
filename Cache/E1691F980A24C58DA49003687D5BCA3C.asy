@@ -1,0 +1,1 @@
+﻿{"currency":"FLUX","unsold":0,"balance":0.00124969,"unpaid":0.00124969,"paid24h":0.00000000,"paidtotal":0.00000000,"minpay":2.54435,"minpay_sunday":0.50887,"total":0.00124969,"miners":[],"payouts":[],"blocks":[]}

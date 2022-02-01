@@ -1,0 +1,1 @@
+﻿{"miner":"9h2iWbF33iPgdBZSauLAbmVt6ByvDhDWAQYySNSuM5goX7uiqop","totalHash":0,"totalShares":0,"poolShares":321826,"lastBlockReward":"67510000000","networkSols":"15130168890706.48","poolMinPayment":"100000000","paid":0,"confirmed":0,"unconfirmed":0,"minPayout":"1000000000","marketStats":{"usd_price":"5.04886665","btc_price":"0.00010371"},"workers":{},"history":[]}

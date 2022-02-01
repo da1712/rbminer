@@ -1,0 +1,1 @@
+﻿{"status":true,"data":[{"block_number":13849895,"hash":"0x6482ec12a9f7f3ced1d787558ce82e2710f63b43448ef0e9c1786c51979aa976","date":1640108006,"value":2.0344194794,"status":1,"miner":"0xe88728ad632eeece62138bedbb6c115db9480d45"}]}

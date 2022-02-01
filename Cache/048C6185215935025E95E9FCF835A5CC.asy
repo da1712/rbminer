@@ -1,0 +1,1 @@
+﻿{"status":true,"data":[{"block_number":2519841,"hash":"cda54445941cd535945f44e2289e8df7893348fafab55a67918a114088272619","date":1640108424,"value":0.796707600769,"status":0,"miner":"8B1juYTFX9C4CMEjPZyjKvBh8h5TFZd8DbwTZPq9ggA4YVeSVavvsdN32mohei7RVHMAY5P2PnmwccKQFHQqyw1H2mJrQfj"}]}

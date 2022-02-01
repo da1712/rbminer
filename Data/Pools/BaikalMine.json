@@ -1,0 +1,86 @@
+[
+    {
+        "symbol":  "CLO",
+        "coin":  "Callisto Network",
+        "algo":  "Ethash",
+        "rpc":  "clo.baikalmine.com",
+        "host":  "clo.baikalmine.com",
+        "port":  [
+                     3333
+                 ],
+        "fee":  0.5,
+        "regions":  [
+                        "eu"
+                    ]
+    },
+    {
+        "symbol":  "ELLA",
+        "coin":  "Ellaism",
+        "algo":  "Ethash",
+        "rpc":  "ell.baikalmine.com",
+        "host":  "ell.baikalmine.com",
+        "port":  [
+                     1010
+                 ],
+        "fee":  0.5,
+        "regions":  [
+                        "eu"
+                    ]
+    },
+    {
+        "symbol":  "ETC",
+        "coin":  "Ethereum Classic",
+        "algo":  "Ethash",
+        "rpc":  "etc.baikalmine.com",
+        "host":  "etc.baikalmine.com",
+        "port":  [
+                     8008
+                 ],
+        "fee":  0.5,
+        "regions":  [
+                        "eu"
+                    ]
+    },
+    {
+        "symbol":  "ETH",
+        "coin":  "Ethereum",
+        "algo":  "Ethash",
+        "rpc":  "eth.baikalmine.com",
+        "host":  "eth.baikalmine.com",
+        "port":  [
+                     5050
+                 ],
+        "fee":  0.5,
+        "regions":  [
+                        "eu"
+                    ]
+    },
+    {
+        "symbol":  "EXP",
+        "coin":  "Expanse",
+        "algo":  "Ethash",
+        "rpc":  "exp.baikalmine.com",
+        "host":  "exp.baikalmine.com",
+        "port":  [
+                     7171
+                 ],
+        "fee":  0.5,
+        "regions":  [
+                        "eu"
+                    ]
+    },
+    {
+        "symbol":  "MOAC",
+        "coin":  "Moac",
+        "algo":  "Ethash",
+        "rpc":  "moac.baikalmine.com",
+        "host":  "moac.baikalmine.com",
+        "port":  [
+                     4444
+                 ],
+        "fee":  0.5,
+        "regions":  [
+                        "eu"
+                    ]
+    }
+]

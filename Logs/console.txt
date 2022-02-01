@@ -1,0 +1,83 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20211225021811
+Username: DA1712\da171
+RunAs User: DA1712\da171
+Configuration Name: 
+Machine: DA1712 (Microsoft Windows NT 10.0.22000.0)
+Host Application: powershell -version 5.0 -executionpolicy bypass -windowstyle maximized -command & {.\rainbowminer.ps1 -configfile .\Config\config.txt; exit $lastexitcode}
+Process ID: 16604
+PSVersion: 5.1.22000.282
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22000.282
+BuildVersion: 10.0.22000.282
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+GeForce GTX 1060 6GB (GPU#00)
+=============================
+
+Miner        Fee Algorithm        Speed    Diff Power   BTC/Day  USD/Day    TTF Accuracy Pool                  PoolFee
+-----        --- ---------        -----    ---- -----   -------- --------   --- -------- ----                  -------
+lolminer   0.70% Ethash      20.90 MH/s       -   85W 0.00002578    1.320 4.8 m      93% 2Miners-Ethereum        1.00%
+CcminerDyn     - Argon2dDyn  75.14 kH/s 305.53m   79W 0.00002079    1.065 1.4 m      89% ZergPoolCoins-Dynamic   0.50%
+WildRig    1.00% ProgPowVeil  8.11 MH/s 784.04M   38W 0.00001841    0.943 3.9 m     100% WoolyPooly-Veil         2.40%
+
+
+
+
+   Status: Running
+
+Last Speed Active      Started Miner    Algorithm Coin     Device       Pool    Power Command
+---------- ------      ------- -----    --------- ----     ------       ----    ----- -------
+    0  H/s 00d/00h/21m Once    lolminer Ethash    Ethereum GTX 1060 6GB 2Miners 85W   Bin\GPU-lolMiner\lolMiner.exe --pool asia.ezil.me:5555 --user 0xcef3fb39580f4638040f304b87d9a7a8467459e6.zil13c75hmve8jxyxl9zpccg4rnd89ky3nfuwdvl33
+                                                                                      --tls off --enablezilcache --dualmode zil --dualpool asia-eth.2miners.com:2020 --dualuser 0xcef3fb39580f4638040f304b87d9a7a8467459e6.da1712int
+                                                                                      --dualpass x --worker da1712int --devices 0 --apiport 31700 --digits 2 --longstats 60 --shortstats 5 --connectattempts 3 --ethstratum ETHPROXY
+                                                                                      --watchdog exit --algo ETHASH --disable-dag-verify 1
+
+
+Pool Balances as of 12/25/2021 01:55:59 (next update in 8 minutes):
+
+Name            Sym  Balance    Pending           BTC    USD
+----            ---  -------    -------           ---    ---
+2Miners         [93mETH[0m  0.00005509 -          0.00000438   0.22
+2Miners         [93mFIRO[0m 0.04207483 -          0.00000449   0.23
+2Miners         [93mRVN[0m  3.14325000 -          0.00000602   0.31
+Ezil            [93mETH[0m  0.00014588 -          0.00001160   0.59
+Ezil            [93mZIL[0m  4.09704218 -          0.00000586   0.30
+HeroMiners      [93mTUBE[0m 0.00003411 -          0.00000000   0.00
+HeroMiners      [93mERG[0m  0.07936177 -          0.00000871   0.45
+HeroMiners      [93mXMR[0m  0.00000133 -          0.00000001   0.00
+HeroMiners      [93mRVN[0m  0.91016640 -          0.00000174   0.09
+HeroMiners      [93mXWP[0m  0.00000001 -          0.00000000   0.00
+MiningPoolHub   GRS  0.00000143 0.00000143 0.00000000   0.00
+MiningPoolHub   [93mBTC[0m  0.00008745 -          0.00008745   4.48
+MiningPoolHub   ETH  0.00000177 0.00000177 0.00000014   0.01
+MiningPoolHub   XMR  0.00000135 0.00000135 0.00000001   0.00
+unMineable      [93mBTC[0m  0.00053420 -          0.00053420  27.36
+unMineable      [93mETH[0m  0.00061604 -          0.00004898   2.51
+unMineable      [93mXMR[0m  0.00007817 -          0.00000031   0.02
+WoolyPooly      [93mERG[0m  0.01638227 -          0.00000180   0.09
+WoolyPooly      [93mRVN[0m  0.01090342 -          0.00000002   0.00
+WoolyPooly      [93mVEIL[0m 4.01621946 -          0.00000179   0.09
+ZergPool        [93mBTC[0m  0.00050214 0.00002328 0.00050214  25.71
+ZergPool        [93mFLUX[0m 0.00124969 -          0.00000005   0.00
+Zpool           [93mBTC[0m  0.00036634 0.00000062 0.00036634  18.76
+[93m*Total Pools*[0m                   -          [93m0.00158603[0m  [93m81.22[0m
+Wallet cef..9e6 ETH  0.02837707 -          0.00225612 115.54
+Wallet RAq..STn RVN  70.5662999 -          0.00013510   6.92
+[93m*Total Wallets*[0m                 -          [93m0.00239122[0m [93m122.45[0m
+[93m*Total*[0m                         -          [93m0.00397725[0m [93m203.67[0m
+
+
+ [12/25/2021 02:18:11] Profit = 0.02578 mBTC/Day | 1.320 USD/Day | 1 BTC = USD 51209.765
+
+[Client-Mode] Connected to 62.182.80.71:4000
+
+Waiting 20s until next run: E[x]it, [R]estart, [B]alance update, [S]kip SP, [W]D reset, [C]onfiguration, [V]erbose, [P]ause, [L]ock
+**********************
+Windows PowerShell transcript end
+End time: 20211225021811
+**********************

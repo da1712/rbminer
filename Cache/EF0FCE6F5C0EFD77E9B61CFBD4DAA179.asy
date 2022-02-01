@@ -1,0 +1,1 @@
+﻿{"currency":"BTC","conversion_disabled":0,"unsold":6.2379226451968E-07,"balance":0.00036572,"unpaid":0.00036634,"paid24h":0.00000000,"total":0.00036634,"no_fees":0,"minpay":0.0015,"miners":[],"payouts":[],"error":""}

@@ -1,0 +1,23 @@
+{
+    "PoolName":  "2Miners",
+    "Currency":  "FIRO",
+    "Balance":  0.04207483,
+    "Paid":  0,
+    "Earnings":  0.00340311,
+    "Earnings_1h":  0.00278436,
+    "Earnings_1d":  0.00278436,
+    "Earnings_1w":  0.00340311,
+    "Earnings_Avg":  0.00135424462699684,
+    "Last_Earnings":  [
+                          {
+                              "Date":  "\/Date(1640161756146)\/",
+                              "Value":  0.00061875
+                          },
+                          {
+                              "Date":  "\/Date(1640377082756)\/",
+                              "Value":  0.00278436
+                          }
+                      ],
+    "Started":  "\/Date(1640095919155)\/",
+    "Updated":  "\/Date(1640377082756)\/"
+}

@@ -1,0 +1,1 @@
+﻿{"status":true,"data":[{"block_number":2070124,"hash":"0000000000008da2eaf0c813dac806f4a85fbb5a1cc53c6f67d05ae25e081d5f","date":1640107136,"value":5000.99492956,"status":1,"miner":"RQxsTBCrEDjFG8aR1sLuNEZ5v28haBiDDi"}]}

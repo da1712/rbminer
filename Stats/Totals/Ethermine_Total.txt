@@ -1,0 +1,10 @@
+{
+    "Pool":  "Ethermine",
+    "Duration":  14.78996965500000265,
+    "Cost":  0,
+    "Profit":  0,
+    "ProfitApi":  0,
+    "Power":  0,
+    "Started":  "\/Date(1640096027573)\/",
+    "Updated":  "\/Date(1640106180984)\/"
+}

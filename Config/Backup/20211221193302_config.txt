@@ -1,0 +1,3 @@
+{
+    "VersionCompatibility":  "4.7.9.3"
+}

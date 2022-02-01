@@ -1,0 +1,210 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20211225014357
+Username: DA1712\da171
+RunAs User: DA1712\da171
+Configuration Name: 
+Machine: DA1712 (Microsoft Windows NT 10.0.22000.0)
+Host Application: powershell -version 5.0 -executionpolicy bypass -windowstyle maximized -command & {.\rainbowminer.ps1 -configfile .\Config\config.txt; exit $lastexitcode}
+Process ID: 23884
+PSVersion: 5.1.22000.282
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22000.282
+BuildVersion: 10.0.22000.282
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is .\Logs\RainbowMiner_2021-12-25_01-43-57.txt
+__________        .__      ___.                   _____  .__
+\______   \_____  |__| ____\_ |__   ______  _  __/     \ |__| ____   ___________
+ |       _/\__  \ |  |/    \| __ \ /  _ \ \/ \/ /  \ /  \|  |/    \_/ __ \_  __ \
+ |    |   \ / __ \|  |   |  \ \_\ (  <_> )     /    Y    \  |   |  \  ___/|  | \/
+ |____|_  /(____  /__|___|  /___  /\____/ \/\_/\____|__  /__|___|  /\___  >__|
+        \/      \/        \/    \/                     \/        \/     \/
+
+Starting v4.7.9.4! Please wait..
+
+RainbowMiner recommends PowerShell Core Version 7.2.1 (vs. v5.1.22000)
+Everything will run fine with the current version, but consider updating your PowerShell
+
+Link for PowerShell: https://github.com/PowerShell/PowerShell/releases/tag/v7.2.1
+
+Checking for VM ..
+ok (not in a VM)
+Checking for cURL ..
+ok
+Detecting devices ..
+1 CPU, 1 Nvidia found
+Starting sysinfo ..
+ok
+Checking Windows pagefile/virtual memory ..
+problem!
+WARNING: Pagefile is set to manage automatically. This is NOT recommended!
+
+To adjust your pagefile settings:
+1. goto Computer Properties -> Advanced System Settings -> Performance -> Advanced -> Virtual Memory
+2. uncheck "Automatically manage paging file size for all drives"
+3. select "Custom size"
+4. enter 6600 into the fields "Initial Size (MB)" and "Maximum Size (MB)"
+5. click onto "Set" and then "OK"
+
+Initialize configuration ..
+Read configuration ..
+WARNING: RainbowMiner is out of date: lastest release version v4.7.9.5 is available.
+Loading pool modules ..
+.. loading 2Miners
+done (14.958s)
+.. loading Acepool
+done (0.676s)
+.. loading Binance
+done (1.212s)
+.. loading Bsod
+done (4.564s)
+.. loading Cortexmint
+done (0.474s)
+.. loading EthashPool
+done (0.248s)
+.. loading Ethermine
+done (0.192s)
+.. loading Ezil
+done (3.213s)
+.. loading FluxPools
+done (0.175s)
+.. loading GosCx
+done (2.743s)
+.. loading HashCity
+done (0.96s)
+.. loading Hashcryptos
+done (2.624s)
+.. loading Hashpool
+done (1.143s)
+.. loading HashVault
+done (0.126s)
+.. loading Hellominer
+done (0.216s)
+.. loading HeroMiners
+done (10.488s)
+.. loading Hiveon
+done (1.159s)
+.. loading Icemining
+done (1.051s)
+.. loading LeafPool
+done (0.189s)
+.. loading LuckPool
+done (0.254s)
+.. loading LuckyPool
+done (0.142s)
+.. loading Luxor
+done (0.097s)
+.. loading MinerRocks
+done (0.385s)
+.. loading Minexmr
+done (0.048s)
+.. loading MiningPoolHub
+done (2.278s)
+.. loading MiningPoolHubCoins
+done (1.306s)
+.. loading MiningRigRentals
+done (4.859s)
+.. loading Nanopool
+done (0.243s)
+.. loading NLpool
+done (6.105s)
+.. loading Ravenminer
+done (1.663s)
+.. loading RPlant
+done (1.969s)
+.. loading SuprNova
+done (0.081s)
+.. loading unMineable
+done (18.148s)
+.. loading WoolyPooly
+done (5.995s)
+.. loading ZergPool
+done (8.588s)
+ Hint: ZergPool mining fee can be reduced from 0.5% to 0.3% by setting "ReduceZergPoolFee" to "1" in config.txt!
+.. loading ZergPoolCoins
+done (2.872s)
+ Hint: ZergPool mining fee can be reduced from 0.5% to 0.3% by setting "ReduceZergPoolFee" to "1" in config.txt!
+.. loading Zpool
+done (5.495s)
+Loading balance modules ..
+PS>TerminatingError(): "404 Not Found (Client Error)"
+Selecting best pools ..
+.. loading WhatToMine
+done (6.609s)
+Loading miner modules ..
+Selecting best miners ..
+Starting mining operation ..
+GeForce GTX 1060 6GB (GPU#00)
+=============================
+
+Miner      Fee Algorithm      Speed Diff Power   BTC/Day  USD/Day    TTF Accuracy Pool             PoolFee
+-----      --- ---------      ----- ---- -----   -------- --------   --- -------- ----             -------
+lolminer 0.70% Ethash    20.90 MH/s    -   85W 0.00002964    1.513 4.8 m      92% 2Miners-Ethereum   1.00%
+Trex     1.00% FiroPoW   10.13 MH/s ...G   88W 0.00001883    0.961 7.9 m      98% 2Miners-Firo       1.00%
+WildRig  1.00% ProgPo...  8.11 MH/s ...M   38W 0.00001850    0.945 4.3 m      99% WoolyPooly-Veil    2.40%
+
+
+Pool Balances as of 12/25/2021 01:45:21 (next update in 25 minutes):
+
+Name          Sym  Balance    Pending           BTC   USD
+----          ---  -------    -------           ---   ---
+2Miners       [93mETH[0m  0.00005509 -          0.00000438  0.22
+2Miners       [93mFIRO[0m 0.04207483 -          0.00000448  0.23
+2Miners       [93mRVN[0m  3.14325000 -          0.00000594  0.30
+Ezil          [93mETH[0m  0.00014588 -          0.00001160  0.59
+Ezil          [93mZIL[0m  4.09704218 -          0.00000583  0.30
+HeroMiners    [93mTUBE[0m 0.00003411 -          0.00000000  0.00
+HeroMiners    [93mERG[0m  0.07936177 -          0.00000874  0.45
+HeroMiners    [93mXMR[0m  0.00000133 -          0.00000001  0.00
+HeroMiners    [93mRVN[0m  0.91016640 -          0.00000172  0.09
+HeroMiners    [93mXWP[0m  0.00000001 -          0.00000000  0.00
+MiningPoolHub GRS  0.00000143 0.00000143 0.00000000  0.00
+MiningPoolHub [93mBTC[0m  0.00008745 -          0.00008745  4.46
+MiningPoolHub ETH  0.00000177 0.00000177 0.00000014  0.01
+MiningPoolHub XMR  0.00000135 0.00000135 0.00000001  0.00
+unMineable    [93mBTC[0m  0.00053420 -          0.00053420 27.27
+unMineable    [93mETH[0m  0.00061604 -          0.00004900  2.50
+unMineable    [93mXMR[0m  0.00007817 -          0.00000031  0.02
+WoolyPooly    [93mERG[0m  0.01638227 -          0.00000180  0.09
+WoolyPooly    [93mRVN[0m  0.01090342 -          0.00000002  0.00
+WoolyPooly    [93mVEIL[0m 4.01621946 -          0.00000179  0.09
+ZergPool      [93mBTC[0m  0.00050214 0.00002328 0.00050214 25.63
+ZergPool      [93mFLUX[0m 0.00124969 -          0.00000005  0.00
+Zpool         [93mBTC[0m  0.00036634 0.00000062 0.00036634 18.70
+[93m*Total Pools*[0m                 -          [93m0.00158595[0m [93m80.95[0m
+Wallet        ETH  0.02837707 -          0.00225711 115.2
+cef..9e6                                                1
+Wallet        RVN  70.5662999 -          0.00013342  6.81
+RAq..STn
+[93m*Total                        -          [93m0.00239053[0m      [93m
+Wallets*[0m                                            122.0
+                                                        2[0m
+[93m*Total*[0m                       -          [93m0.00397648[0m      [93m
+                                                    202.9
+                                                        8[0m
+
+
+ [12/25/2021 01:50:16] Profit = 0.00000000 BTC/Day | 0.000 USD/Day | 1 BTC = USD 51043.95
+
+[Client-Mode] Connected to 62.182.80.71:4000
+
+Automatic update to v4.7.9.5 starts in some seconds
+
+Waiting 20s until next run: [U]pdate RainbowMiner, E[x]it, [R]estart, [B]alance update, [S]kip SP, [W]D reset, [C]onfiguration, [V]erbose, [P]ause, [L]ock
+Finished waiting - starting next run
+
+Updating from v4.7.9.4 to v4.7.9.5
+ (1/3) Downloading https://github.com/RainbowMiner/RainbowMiner/releases/download/v4.7.9.5/RainbowMinerV4.7.9.5_win.zip ..
+ (2/3) Deleting and backup old files ..
+ (3/3) Extracting new files ..
+Update finished. Restarting RainbowMiner ..
+Restarting now, please wait!
+
+**********************
+Windows PowerShell transcript end
+End time: 20211225015350
+**********************

@@ -1,0 +1,23 @@
+{
+    "PoolName":  "2Miners",
+    "Currency":  "ETH",
+    "Balance":  0.000055092,
+    "Paid":  0.051610865,
+    "Earnings":  0.000047611,
+    "Earnings_1h":  0.0000339,
+    "Earnings_1d":  0.0000339,
+    "Earnings_1w":  0.000047611,
+    "Earnings_Avg":  0.0000203214977961882,
+    "Last_Earnings":  [
+                          {
+                              "Date":  "\/Date(1640176446984)\/",
+                              "Value":  0.000013711
+                          },
+                          {
+                              "Date":  "\/Date(1640377082756)\/",
+                              "Value":  0.000033900
+                          }
+                      ],
+    "Started":  "\/Date(1640095919155)\/",
+    "Updated":  "\/Date(1640377082756)\/"
+}
